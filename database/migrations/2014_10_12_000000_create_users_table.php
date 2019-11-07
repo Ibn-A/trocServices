@@ -24,9 +24,10 @@ class CreateUsersTable extends Migration
             $table->string('adresse', 100)->nullable();
             $table->string('cp', 20)->nullable();
             $table->string('ville', 50)->nullable();
-            $table->json('disponibilite')->nullable();
+            $table->json('disponibilites')->nullable();
             $table->string('photo', 50)->nullable();
-            $table->string('presentation', 300)->nullable();;
+            $table->string('presentation', 300)->nullable();
+            $table->char('telephone', 10)->nullable();
             $table->rememberToken();
             $table->timestamps();
         });
