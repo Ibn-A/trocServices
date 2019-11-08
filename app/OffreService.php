@@ -7,6 +7,6 @@ use Illuminate\Database\Eloquent\Model;
 class OffreService extends Model
 {
     protected $fillable = [
-        'contenu_offre'
+        'objet_offre', 'contenu_offre'
     ];
 }
