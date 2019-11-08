@@ -13,16 +13,33 @@ class ServicesTableSeeder extends Seeder
     {
         App\Service::create(
             [
-                'nomService'=>'jardinage',    
+                'nomService'=>'massage',    
             ]
         );
 
         App\Service::create(
             [
-                'nomService'=>'massage',    
+                'nomService'=>'menage',    
             ]
         );
-        
+
+        App\Service::create(
+            [
+                'nomService'=>'demarche_administratif',    
+            ]
+        );
+
+        App\Service::create(
+            [
+                'nomService'=>'cuisine',    
+            ]
+        );
+
+        App\Service::create(
+            [
+                'nomService'=>'plomberie',    
+            ]
+        );        
         
     }
 }
