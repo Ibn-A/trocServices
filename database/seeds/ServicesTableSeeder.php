@@ -13,8 +13,7 @@ class ServicesTableSeeder extends Seeder
     {
         App\Service::create(
             [
-                'nomService'=>jardinage,
-                
+                'nomService'=>'jardinage',    
             ]
         );
     }
