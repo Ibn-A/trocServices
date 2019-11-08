@@ -13,12 +13,6 @@ class CategoriesTableSeeder extends Seeder
     {
         App\Categorie::create(
             [
-                'nomCategorie'=>'Beauté'
-            ]
-        );
-
-        App\Categorie::create(
-            [
                 'nomCategorie'=>'Bien être'
             ]
         );
