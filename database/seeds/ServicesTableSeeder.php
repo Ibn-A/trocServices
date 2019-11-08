@@ -16,5 +16,13 @@ class ServicesTableSeeder extends Seeder
                 'nomService'=>'jardinage',    
             ]
         );
+
+        App\Service::create(
+            [
+                'nomService'=>'massage',    
+            ]
+        );
+        
+        
     }
 }
