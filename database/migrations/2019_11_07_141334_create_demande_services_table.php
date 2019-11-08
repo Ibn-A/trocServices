@@ -16,6 +16,7 @@ class CreateDemandeServicesTable extends Migration
         Schema::create('demande_services', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->timestamps();
+            $table->string('objet_demande', 50);
             $table->text('contenu_demande', 300);
         });
     }
