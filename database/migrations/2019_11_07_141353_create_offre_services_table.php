@@ -16,6 +16,7 @@ class CreateOffreServicesTable extends Migration
         Schema::create('offre_services', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->timestamps();
+            $table->string('objet_offre', 50);
             $table->text('contenu_offre', 300);
         });
     }
