@@ -36,4 +36,20 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    /**
+     * Get the demandeServices associated with the user.
+     */
+    public function demandeServices()
+    {
+        return $this->hasMany('App\DemandeService');
+    }
+
+    /**
+     * Get the offreServices associated with the user.
+     */
+    public function offreServices()
+    {
+        return $this->hasMany('App\OffreService');
+    }
 }
