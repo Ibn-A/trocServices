@@ -38,7 +38,7 @@ class User extends Authenticatable
     ];
 
     /**
-     * Get the demandeServices associated with the user.
+     * Obtenir les demandes de services d'un utilisateur.
      */
     public function demandeServices()
     {
@@ -46,7 +46,7 @@ class User extends Authenticatable
     }
 
     /**
-     * Get the offreServices associated with the user.
+     * Obtenir les offres de services d'un utilisateur.
      */
     public function offreServices()
     {
