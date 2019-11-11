@@ -23,4 +23,11 @@ class Service extends Model
     {
         return $this->hasMany('App\OffreService');
     }
+    /**
+     * Obtenir la catégorie auquel appartient le service.
+     */
+    public function categorie()
+    {
+        return $this->belongsTo('App\Categorie');
+    }
 }
