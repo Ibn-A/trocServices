@@ -11,10 +11,18 @@ class OffreService extends Model
     ];
 
     /**
-     * obtenir l'identité de l'offreur du service.
+     * Obtenir l'identité de l'offreur du service.
      */
     public function user()
     {
         return $this->belongsTo('App\User');
     }
+    /**
+     * Obtenir le type de service correspondant à l'offre de service.
+     */
+    public function service()
+    {
+        return $this->belongsTo('App\service');
+    }
+    
 }

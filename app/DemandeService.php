@@ -16,4 +16,11 @@ class DemandeService extends Model
     {
         return $this->belongsTo('App\User');
     }
+    /**
+     * Obtenir le type de service correspondant à la demande de service.
+     */
+    public function service()
+    {
+        return $this->belongsTo('App\Service');
+    }
 }
