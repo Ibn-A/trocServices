@@ -22,7 +22,13 @@ class OffreService extends Model
      */
     public function service()
     {
-        return $this->belongsTo('App\service');
+        return $this->belongsTo('App\Service');
     }
-    
+    /**
+     * Obtenir la localisation du service offert.
+     */
+    public function localisation()
+    {
+        return $this->belongsTo('App\Localisaton');
+    }
 }

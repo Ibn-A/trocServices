@@ -23,4 +23,11 @@ class DemandeService extends Model
     {
         return $this->belongsTo('App\Service');
     }
+    /**
+     * Obtenir la localisation du service demandé.
+     */
+    public function localisation()
+    {
+        return $this->belongsTo('App\Localisation');
+    }
 }
