@@ -14,6 +14,6 @@ class Categorie extends Model
      */
     public function services()
     {
-        $this->hasMany('App\service');
+        return $this->hasMany('App\service');
     }
 }
