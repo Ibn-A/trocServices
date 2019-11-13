@@ -14,7 +14,7 @@ class Localisation extends Model
      */
     public function demandeServices()
     {
-        $this->hasMany('App\DemandeService');
+        return $this->hasMany('App\DemandeService');
     }
     /**
      * Obtenir les offres de services d'une localisation.
