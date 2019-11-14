@@ -16,8 +16,8 @@ class CreateLocalisationsTable extends Migration
         Schema::create('localisations', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->timestamps();
-            $table->string('adresse_localisation', 50);
-            $table->string('cp_localisation', 20);
+            $table->string('adresse_localisation', 50)->nullable();
+            $table->string('cp_localisation', 20)->nullable();
             $table->string('ville_localisation', 50);
         });
     }
