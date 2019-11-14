@@ -15,7 +15,7 @@ class DemandeServicesTableSeeder extends Seeder
             [
                 'objet_demande'=>'recherche massage thailandais',
                 'contenu_demande'=>'Je débute un entraienement intensif en boxe thai et,
-                 je souhaiterais avoir  des massages thailandais fait par un spécialiste pour cet été.',
+                 je souhaiterais bénéficier de séances de massages thailandais fait par un spécialiste pour cet été.',
                 'user_id'=> 1,
                 'service_id'=> 1,
                 'localisation_id'=> 1
