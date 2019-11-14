@@ -33,6 +33,13 @@ class CreateDemandeServicesTable extends Migration
                 ->on('services')
                 ->onDelete('restrict')
                 ->onUpdate('restrict');
+            
+            $table->unsignedBigInteger('localisation_id');
+            $table->foreign('localisation_id')
+                ->references('id')
+                ->on('localisations')
+                ->onDelete('restrict')
+                ->onUpdate('restrict');
         });
     }
 
