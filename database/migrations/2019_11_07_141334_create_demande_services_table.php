@@ -13,11 +13,24 @@ class CreateDemandeServicesTable extends Migration
      */
     public function up()
     {
+        Schema::disableForeignKeyConstraints();
         Schema::create('demande_services', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->timestamps();
             $table->string('objet_demande', 50);
             $table->text('contenu_demande', 300);
+
+            $table->foreign('user_id')
+                ->references('id')
+                ->on('users')
+                ->onDelete('restrict')
+                ->onUpdate('restrict');
+
+            $table->foreign('service_id')
+                ->references('id')
+                ->on('services')
+                ->onDelete('restrict')
+                ->onUpdate('restrict');
         });
     }
 
