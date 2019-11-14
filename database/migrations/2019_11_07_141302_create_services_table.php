@@ -18,7 +18,8 @@ class CreateServicesTable extends Migration
             $table->bigIncrements('id');
             $table->timestamps();
             $table->string('nomService', 50);
-
+            
+            $table->unsignedBigInteger('categorie_id');
             $table->foreign('categorie_id')
                 ->references('id')
                 ->on('categories')
