@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Service extends Model
 {
     protected $fillable = [
-        'nomService'
+        'nomService','categorie_id'
     ];
     /**
      * Obtenir les demandes de services associés à un service type.

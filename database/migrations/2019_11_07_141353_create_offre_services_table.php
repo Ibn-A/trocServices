@@ -20,15 +20,24 @@ class CreateOffreServicesTable extends Migration
             $table->string('objet_offre', 50);
             $table->text('contenu_offre', 300);
 
+            $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')
                 ->references('id')
                 ->on('users')
                 ->onDelete('restrict')
                 ->onUpdate('restrict');
-
+            
+            $table->unsignedBigInteger('service_id');
             $table->foreign('service_id')
                 ->references('id')
                 ->on('services')
+                ->onDelete('restrict')
+                ->onUpdate('restrict');
+            
+            $table->unsignedBigInteger('localisation_id');
+            $table->foreign('localisation_id')
+                ->references('id')
+                ->on('localisations')
                 ->onDelete('restrict')
                 ->onUpdate('restrict');
         });

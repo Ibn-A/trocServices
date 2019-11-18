@@ -20,15 +20,24 @@ class CreateDemandeServicesTable extends Migration
             $table->string('objet_demande', 50);
             $table->text('contenu_demande', 300);
 
+            $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')
                 ->references('id')
                 ->on('users')
                 ->onDelete('restrict')
                 ->onUpdate('restrict');
 
+            $table->unsignedBigInteger('service_id');
             $table->foreign('service_id')
                 ->references('id')
                 ->on('services')
+                ->onDelete('restrict')
+                ->onUpdate('restrict');
+            
+            $table->unsignedBigInteger('localisation_id');
+            $table->foreign('localisation_id')
+                ->references('id')
+                ->on('localisations')
                 ->onDelete('restrict')
                 ->onUpdate('restrict');
         });
