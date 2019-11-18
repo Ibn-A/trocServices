@@ -13,19 +13,19 @@ class LocalisationsTableSeeder extends Seeder
     {
         App\Localisation::create(
             [
-                'ville'=>'Strasbourg'
+                'ville_service'=>'Strasbourg'
             ]
         );
 
         App\Localisation::create(
             [
-                'ville'=>'lingolsheim'
+                'ville_service'=>'lingolsheim'
             ]
         );
 
         App\Localisation::create(
             [
-                'ville'=>'Illkirch-Graffenstaden'
+                'ville_service'=>'Illkirch-Graffenstaden'
             ]
         );
     }
