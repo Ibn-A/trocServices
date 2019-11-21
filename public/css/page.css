@@ -81,3 +81,12 @@ hr.light {
 .partenaire {
     background-color: #f8f9fa!important;
 }
+
+footer.footer {
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+}
+
+.bg-dark {
+    background-color: #eeeee2 !important;
+}
