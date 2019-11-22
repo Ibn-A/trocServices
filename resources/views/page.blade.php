@@ -22,7 +22,7 @@
     <body>
 
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <a class="navbar-brand" href="#">
+            <a class="navbar-brand" href="{{ url('/') }}">
                 <img src="https://via.placeholder.com/30" width="30" height="30" class="d-inline-block align-top" alt="">
                 trocServices
             </a>
@@ -60,7 +60,7 @@
                         <form>
                             <div class="form-row">
                                 <div class="col-12 col-md-5 mb-2 mb-md-0">
-                                    <input type="recherche1" class="form-control form-control-lg" placeholder="Que recherche-tu ?">
+                                    <input type="recherche1" class="form-control form-control-lg" placeholder="Que recherches-tu ?">
                                 </div>
                                 <div class="col-12 col-md-5 mb-2 mb-md-0">
                                         <input type="recherche2" class="form-control form-control-lg" placeholder="Où ?">
