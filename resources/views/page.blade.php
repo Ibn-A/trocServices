@@ -32,16 +32,16 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item active">
-                        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                        <a class="nav-link" href="#">les offres <span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Features</a>
+                        <a class="nav-link" href="#">les demandes</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Pricing</a>
+                        <a class="nav-link" href="{{ route('login') }}">se connecter</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link disabled" href="#">Disabled</a>
+                        <a class="nav-link disabled" href="{{ route('register') }}">s'inscrire</a>
                     </li>
                 </ul>
             </div>
@@ -53,7 +53,8 @@
                 <div class="container">
                 <div class="row">
                     <div class="col-xl-9 mx-auto">
-                        <h1 class="mb-5">Lorem, ipsum dolor sit amet consectetur adipisicing elit!</h1>
+                        <h1 class="mb-5">trocServices</h1>
+                        <h2 class="=mb-5">le meilleur endroit où échanger le service dont vous avez besoin </h2>
                     </div>
                     <div class="col-md-10 col-lg-8 col-xl-12">
                         <form>
