@@ -21,7 +21,7 @@
 
     <body>
 
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light ">
             <a class="navbar-brand" href="{{ url('/') }}">
                 <img src="https://via.placeholder.com/30" width="30" height="30" class="d-inline-block align-top" alt="">
                 trocServices
@@ -29,7 +29,7 @@
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
+            <div class="collapse navbar-collapse" id="navbarNav" >
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item active">
                         <a class="nav-link" href="#">les offres <span class="sr-only">(current)</span></a>
@@ -97,7 +97,8 @@
                 <div class="row">
                     <div class="col-lg-3 col-md-6 text-center">
                         <div class="mt-5">
-                            <i class="fas fa-4x fa-vector-square text-primary mb-4"></i>
+                            <a href ="">
+                            <i class="fas fa-4x fa-vector-square text-primary mb-4"></i></a>
                             <h3 class="h4 mb-2">Lorem ipsum</h3>
                             <p class="text-muted mb-0">Lorem ipsum dolor sit, amet consectetur adipisicing elit.</p>
                         </div>
