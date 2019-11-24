@@ -14,7 +14,7 @@
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
         
         <!-- Style CSS -->
-        <link href="{{ asset('css/page.css') }}" rel="stylesheet">
+        <link href="{{ asset('css/accueil.css') }}" rel="stylesheet">
 
         <title>trocServices</title>
     </head>
