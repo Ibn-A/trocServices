@@ -28,7 +28,7 @@ class ServicesTableSeeder extends Seeder
 
         App\Service::create(
             [
-                'nomService'=>'demarche_administratif',
+                'nomService'=>'administratif',
                 'categorie_id'=> 3    
             ]
         );
