@@ -24,7 +24,8 @@ class Service extends FormRequest
     public function rules()
     {
         return [
-            'nomService'=> ['required','string','max:50']
+            'nomService'=> ['required','string','max:50'],
+            
         ];
     }
 }
