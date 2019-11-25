@@ -23,7 +23,7 @@
 
         <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light ">
             <a class="navbar-brand" href="{{ url('/') }}">
-                <img src="https://via.placeholder.com/30" width="30" height="30" class="d-inline-block align-top" alt="">
+                <img src="" width="30" height="30" class="d-inline-block align-top" alt="">
                 trocServices
             </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
