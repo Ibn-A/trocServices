@@ -2,7 +2,7 @@
 @section('content')
 <section class="section">
     <div class="container has-text-centered">
-        <h2 class="title">Categories de Services</h2>
+        <h1 class="title">Les grandes catégories</h1>
 
         <div class="tile is-ancestor divider my-3">
             @foreach($categories as $categorie) 
