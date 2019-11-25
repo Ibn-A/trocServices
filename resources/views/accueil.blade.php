@@ -30,19 +30,42 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav" >
-                <ul class="navbar-nav ml-auto">
-                    <li class="nav-item active">
-                        <a class="nav-link" href="#">les offres <span class="sr-only">(current)</span></a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">les demandes</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ route('login') }}">se connecter</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link disabled" href="{{ route('register') }}">s'inscrire</a>
-                    </li>
+                <ul class="navbar-nav ml-auto">  
+                    <!-- Authentication Links -->
+                    @guest
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('login') }}">{{ __('Se connecter') }}</a>
+                        </li>
+                        @if (Route::has('register'))
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('register') }}">{{ __("S'inscrire") }}</a>
+                            </li>
+                        @endif
+                    @else
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{route('categories.index')}}">les offres <span class="sr-only">(current)</span></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{route('categories.demandesIndex')}}">les demandes</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                {{ Auth::user()->name }} <span class="caret"></span>
+                            </a>
+
+                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="{{ route('logout') }}"
+                                    onclick="event.preventDefault();
+                                                    document.getElementById('logout-form').submit();">
+                                    {{ __('Se deconnecter') }}
+                                </a>
+
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                    @csrf
+                                </form>
+                            </div>
+                        </li>
+                    @endguest
                 </ul>
             </div>
         </nav>
@@ -80,7 +103,7 @@
             <div class="container">
                 <div class="row justify-content-center">
                     <div class="col-lg-8 text-center">
-                        <h2 class="text-white mt-0">Lorem Ipsum Dolor Sit!</h2>
+                        <h2 class="text-white mt-0">Je souhaite devenir un troker !</h2>
                         <hr class="divider light my-4">
                         <p class="text-white-50 mb-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit debitis, omnis est possimus quo numquam ipsa explicabo aliquid, dolorum aspernatur blanditiis praesentium unde id alias sit, veniam adipisci amet asperiores.</p>
                     </div>
@@ -91,7 +114,7 @@
         <!-- Services Section -->
         <section class="page-section" id="services">
             <div class="container">
-                <h2 class="text-center mt-0">Lorem Ipsum Dolor</h2>
+                <h2 class="text-center mt-0">Les thèmes les plus échangés</h2>
                 <hr class="divider my-4">
 
                 <div class="row">
