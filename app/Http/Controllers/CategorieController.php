@@ -2,20 +2,33 @@
 
 namespace App\Http\Controllers;
 
+use App\Categorie;
 use Illuminate\Http\Request;
 
 class CategorieController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * Display a listing of the categories_offres.
      *
      * @return \Illuminate\Http\Response
      */
     public function index()
     {
         $categories = Categorie::all();
-        return view('index', compact('categories'));
+        return view('categories.offresIndex', compact('categories'));
     }
+
+    /**
+     * Display a listing of the categories_demandes.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function demandesIndex()
+    {
+        $categories = Categorie::all();
+        return view('categories.demandesIndex', compact('categories'));
+    }
+
 
     /**
      * Show the form for creating a new resource.
