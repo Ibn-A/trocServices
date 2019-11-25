@@ -13,7 +13,7 @@ class OffreServiceController extends Controller
      */
     public function index()
     {
-        $offresServices =
+      return view('services.osByCategorie');
     }
 
     /**

@@ -21,11 +21,15 @@ Route::get('/welcome', function () {
 
 Auth::routes();
 
+
 Route::get('/home', 'HomeController@index')->name('home');
 
+Route::group(['middleware' => 'auth'], function(){
 // routes for categories list
 Route::get('/dcategories', 'CategorieController@demandesIndex')->name('categories.demandesIndex');
 Route::resource('categories', 'CategorieController');
 
 // routes for offreServices list
-Route::resource('categories','OffreServiceController');
+
+Route::resource('services','OffreServiceController');
+});
