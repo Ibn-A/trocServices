@@ -13,7 +13,7 @@
                     </figure>
                     <p class="title">{{ $service->nomService }}</p>
                         <tr>
-                                <td><a class="button is-warning" href="{{route:}}">Voir</a></td>   
+                                <td><a class="button is-warning" href="{{route('offreServicesList', $service->id)}}">Voir</a></td>   
                         </tr>
                         
                     </article>

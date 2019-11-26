@@ -30,7 +30,7 @@ Route::get('/dcategories', 'CategorieController@demandesIndex')->name('categorie
 Route::resource('/categories', 'CategorieController');
 
 // routes for offreServices list
-Route::get('/{service}/offreservices', 'OffreServiceController@offreServicesByService')->name('offreservices.offreServicesByService');
+Route::get('/{service}/offreservices', 'OffreServiceController@offreServicesList')->name('offreServicesList');
 Route::resource('offreservices','OffreServiceController');
 
 //routes for services list

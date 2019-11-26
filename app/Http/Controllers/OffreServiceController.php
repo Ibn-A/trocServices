@@ -18,11 +18,11 @@ class OffreServiceController extends Controller
       //
     }
     
-    public function offreServicesList(){
+    public function offreServicesList(Service $service){
 
-        //$offreServices = OffreService::where('service_id', $service->id)->get();
-        return view('services.offre_services');
-
+        $offreServices = OffreService::where('service_id', $service->id)->get();
+        return view('services.offre_services', compact('offreServices'));
+        
     }
 
     /**
