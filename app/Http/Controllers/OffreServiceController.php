@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Service;
+use App\OffreService;
 use Illuminate\Http\Request;
 
 class OffreServiceController extends Controller
@@ -13,7 +15,14 @@ class OffreServiceController extends Controller
      */
     public function index()
     {
-      return view('services.osByCategorie');
+      //
+    }
+    
+    public function offreServicesList(){
+
+        //$offreServices = OffreService::where('service_id', $service->id)->get();
+        return view('services.offre_services');
+
     }
 
     /**
