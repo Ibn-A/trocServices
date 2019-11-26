@@ -34,5 +34,5 @@ Route::resource('/categories', 'CategorieController');
 Route::resource('offreservices','OffreServiceController');
 
 //routes for services list
-Route::resource('/categorie/{categorie}/services','ServiceController');
+Route::get('/{categorie}/services','ServiceController@index')->name('services.index');
 });
