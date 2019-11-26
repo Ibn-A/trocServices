@@ -30,9 +30,9 @@ Route::get('/dcategories', 'CategorieController@demandesIndex')->name('categorie
 Route::resource('/categories', 'CategorieController');
 
 // routes for offreServices list
-
+Route::get('/{service}/offreservices', 'OffreServiceController@offreServicesByService')->name('offreservices.offreServicesByService');
 Route::resource('offreservices','OffreServiceController');
 
 //routes for services list
-Route::get('/{categorie}/services','ServiceController@index')->name('services.index');
+Route::get('/{categorie}/services','ServiceController@servicesByCategorieOffre')->name('services.index');
 });

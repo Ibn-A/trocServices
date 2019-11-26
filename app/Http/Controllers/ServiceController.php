@@ -16,9 +16,14 @@ class ServiceController extends Controller
      */
     public function index(Categorie $categorie)
     {
+        //
+    }
+
+    public function servicesByCategorieOffre(Categorie $categorie)
+    {
         
         $services = Service::where('categorie_id', $categorie->id)->get();
-        return view('services.offresIndex', compact('services'));
+        return view('services.services_by_categorie_Offre', compact('services'));
     }
 
      /**
