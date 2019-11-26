@@ -15,7 +15,7 @@ class CategorieController extends Controller
     public function index()
     {
         $categories = Categorie::all();
-        return view('categories.offresIndex', compact('categories'));
+        return view('categories.categorie_offre_list', compact('categories'));
     }
 
     /**
@@ -26,7 +26,7 @@ class CategorieController extends Controller
     public function demandesIndex()
     {
         $categories = Categorie::all();
-        return view('categories.demandesIndex', compact('categories'));
+        return view('categories.categorie_demande_list', compact('categories'));
     }
 
 
