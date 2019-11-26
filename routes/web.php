@@ -27,12 +27,12 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::group(['middleware' => 'auth'], function(){
 // routes for categories list
 Route::get('/dcategories', 'CategorieController@demandesIndex')->name('categories.demandesIndex');
-Route::resource('categories', 'CategorieController');
+Route::resource('/categories', 'CategorieController');
 
 // routes for offreServices list
 
 Route::resource('offreservices','OffreServiceController');
 
 //routes for services list
-Route::resource('/categorie/services','ServiceController');
+Route::resource('/categorie/{categorie}/services','ServiceController');
 });

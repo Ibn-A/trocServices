@@ -13,7 +13,7 @@
                     </figure>
                     <p class="title">{{ $categorie->nomCategorie }}</p>
                         <tr>
-                                <td><a class="button is-warning" href="{{ route('services.index') }}">Voir</a></td>
+                                <td><a class="button is-warning" href="{{ route('services.index', $categorie->id) }}">Voir</a></td>
                             
                         </tr>
                         

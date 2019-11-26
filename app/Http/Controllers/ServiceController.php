@@ -14,9 +14,9 @@ class ServiceController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Categorie $categorie)
     {
-        $services = Service::all();
+        $services = Categorie::find($categorie)->services;
         return view('services.offresIndex', compact('services'));
     }
 
