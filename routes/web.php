@@ -25,14 +25,22 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::group(['middleware' => 'auth'], function(){
-// routes for categories list
-Route::get('/dcategories', 'CategorieController@demandesIndex')->name('categories.demandesIndex');
-Route::resource('/categories', 'CategorieController');
+    // routes for categories list
+    Route::get('/dcategories', 'CategorieController@demandesIndex')->name('categories.demandesIndex');
+    Route::resource('/categories', 'CategorieController');
 
-// routes for offreServices list
-Route::get('/{service}/offreservices', 'OffreServiceController@offreServicesList')->name('offreServicesList');
-Route::resource('offreservices','OffreServiceController');
+    // routes for offreServices list
+    Route::get('/{service}/offreservices', 'OffreServiceController@offreServicesList')->name('offreServicesList');
+    Route::resource('offreservices','OffreServiceController');
 
-//routes for services list
-Route::get('/{categorie}/services','ServiceController@servicesByCategorieOffre')->name('servicesByCategorieOffre');
+    //routes for services list
+    Route::get('/{categorie}/services','ServiceController@servicesByCategorieOffre')->name('servicesByCategorieOffre');
 });
+//definition partielle des routes en excluant les methode index,show,destroy
+Route::resource('offresServices','SearchController')
+    ->parameters([
+        'offresServices' => 'search'
+    ])->except([
+        'index', 'show', 'destroy'
+    ]);
+
