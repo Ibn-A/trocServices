@@ -17,8 +17,15 @@ class CreateDemandeServicesTable extends Migration
         Schema::create('demande_services', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->timestamps();
-            $table->string('objet_demande', 50);
-            $table->text('contenu_demande', 300);
+            $table->string('titre', 50);
+            $table->text('texte', 300);
+            $table->string('departement');
+            $table->string('commune');
+            $table->string('commune_name');
+            $table->string('commune_postal');
+            $table->string('pseudo');
+            $table->date('email');
+            $table->boolean('active')->default(false);
 
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')
@@ -26,7 +33,7 @@ class CreateDemandeServicesTable extends Migration
                 ->on('users')
                 ->onDelete('restrict')
                 ->onUpdate('restrict');
-
+            
             $table->unsignedBigInteger('service_id');
             $table->foreign('service_id')
                 ->references('id')

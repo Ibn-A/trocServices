@@ -15,10 +15,11 @@ class CreateLocalisationsTable extends Migration
     {
         Schema::create('localisations', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->string('name', 50)->unique();
+            $table->string('slug', 50)->unique();
+            $table->tinyInteger('code')->unique();
             $table->timestamps();
-            $table->string('region', 50)->nullable();
-            $table->string('departement', 50)->nullable();
-            $table->string('commune', 50);
+            
         });
     }
 

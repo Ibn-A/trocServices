@@ -17,8 +17,15 @@ class CreateOffreServicesTable extends Migration
         Schema::create('offre_services', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->timestamps();
-            $table->string('objet_offre', 50);
-            $table->text('contenu_offre', 300);
+            $table->string('titre', 50);
+            $table->text('texte', 300);
+            $table->string('departement');
+            $table->string('commune');
+            $table->string('commune_name');
+            $table->string('commune_postal');
+            $table->string('pseudo');
+            $table->date('email');
+            $table->boolean('active')->default(false);
 
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')

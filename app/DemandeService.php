@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class DemandeService extends Model
 {
     protected $fillable = [
-        'objet_demande','contenu_demande','user_id','service_id','localisation_id'
+        'titre', 'texte','user_id','service_id','localisation_id','departement','commune','commune_name','commune_postal','pseudo','email','limit','active'
     ];
     /**
      * obtenir l'identité du demandeur du service.

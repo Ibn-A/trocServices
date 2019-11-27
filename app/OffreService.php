@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class OffreService extends Model
 {
     protected $fillable = [
-        'objet_offre', 'contenu_offre','user_id','service_id','localisation_id'
+        'titre', 'texte','user_id','service_id','localisation_id','departement','commune','commune_name','commune_postal','pseudo','email','limit','active'
     ];
 
     /**
