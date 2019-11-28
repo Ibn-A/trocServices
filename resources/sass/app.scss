@@ -6,3 +6,15 @@
 
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
+
+.base {
+    fill:orange;
+    cursor: pointer;
+    -webkit-transition: fill .5s ease-out;
+    -moz-transition: fill .5s ease-out;
+    -o-transition: fill .5s ease-out;
+    transition: fill .5s ease-out;
+}
+.base:hover {
+    fill: #bd4;
+}
