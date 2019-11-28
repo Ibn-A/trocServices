@@ -102,10 +102,12 @@
         <section class="page-section bg-primary">
             <div class="container">
                 <div class="row justify-content-center">
-                    <div class="col-lg-8 text-center">
+                    <div class="col-lg-10 text-center">
                         <h2 class="text-white mt-0">Je souhaite devenir un troker !</h2>
                         <hr class="divider light my-4">
-                        <p class="text-white-50 mb-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit debitis, omnis est possimus quo numquam ipsa explicabo aliquid, dolorum aspernatur blanditiis praesentium unde id alias sit, veniam adipisci amet asperiores.</p>
+                        <p class="text-white-50 mb-8">Etape 1 : Inscrivez-vous sur le site. 
+                        <p class="text-white-50 mb-8">Etape 2 : Connectez-vous ensuite dès que possible. </p>
+                        <p class="text-white-50 mb-8">Etape 3 : Trouvez le service dont vous avec besoin.</p>
                     </div>
                 </div>
             </div>
