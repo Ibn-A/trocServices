@@ -13,31 +13,37 @@ class CategoriesTableSeeder extends Seeder
     {
         App\Categorie::create(
             [
-                'nomCategorie'=>'Bien être'
+                'nomCategorie'=>'Soins et beauté'
             ]
         );
 
         App\Categorie::create(
             [
-                'nomCategorie'=>'Maison'
+                'nomCategorie'=>'Cours particuliers'
             ]
         );
 
         App\Categorie::create(
             [
-                'nomCategorie'=>'Aide à la personne'
+                'nomCategorie'=>'Aide ménagère'
             ]
         );
 
         App\Categorie::create(
             [
-                'nomCategorie'=>'Cours'
+                'nomCategorie'=>'Les animaux'
             ]
         );
 
         App\Categorie::create(
             [
-                'nomCategorie'=>'Bricolage'
+                'nomCategorie'=>'Demenagement'
+            ]
+        );
+
+        App\Categorie::create(
+            [
+                'nomCategorie'=>'Travaux et entretien habitat'
             ]
         );
     }
