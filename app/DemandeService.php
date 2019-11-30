@@ -30,4 +30,19 @@ class DemandeService extends Model
     {
         return $this->belongsTo('App\Localisation');
     }
+    /**
+     * Obtenir les messages liées à la demandeService.
+     */
+    public function messageDemande()
+    {
+        return $this->hasMany('App\DemandeService');
+    }
+
+    /**
+     * Obtenir les messages liées à l'offreService.
+     */
+    public function messageOffre()
+    {
+        return $this->hasMany('App\OffreService');
+    }
 }
