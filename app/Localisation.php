@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Localisation extends Model
 {
     protected $fillable = [
-        'nom','slug','code'
+        'nom','code'
     ];
     /**
      * Obtenir les demandes de services d'une localisation.
