@@ -2,8 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Service;
-use App\OffreService;
 use Illuminate\Http\Request;
 
 class OffreServiceController extends Controller
@@ -11,18 +9,24 @@ class OffreServiceController extends Controller
     /**
      * Display a listing of the resource.
      *
+     * @param \Illuminate\Http\Request $request
+     * @param String $regionSlug
+     * @param Integer $departementCode
+     * @param Integer $communeCode
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request, $regionSlug = null, $departementCode = null, $communeCode = null)
     {
-      //
-    }
-    
-    public function offreServicesList(Service $service){
-
-        $offreServices = OffreService::where('service_id', $service->id)->get();
-        return view('services.offre_services', compact('offreServices'));
-        
+        // on récupère tous les services dans la vue dans l'ordre alphabétique
+        $services = Service::select('nomService', 'id')->oldest('nomService')->get();
+        // on récupère la liste complète des régions par ordre alphabétique
+        $localisations = Localisation::select('id','code','name','slug')->oldest('name')->get();
+        //ensuite si un slug est présent pour la région, on la récupère, sinon on garde le null
+        $localisation = $localisationSlug ? Localisation::whereSlug($localisationSlug)->firstOrFail() : null;
+        //on regarde s'il y a une pagination et on renvoie le numéro de la page.
+        $page = $request->query('page', 0);
+        // on renvoie tout ça dans un vue.
+        Return view('offresVue', compact('services', 'localisations', 'localisation', 'departementCode', 'communeCode', 'page'));
     }
 
     /**
