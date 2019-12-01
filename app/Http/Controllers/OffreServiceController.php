@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Service;
+use App\Localisation;
 use Illuminate\Http\Request;
 
 class OffreServiceController extends Controller
@@ -20,13 +22,12 @@ class OffreServiceController extends Controller
         // on récupère tous les services dans la vue dans l'ordre alphabétique
         $services = Service::select('nomService', 'id')->oldest('nomService')->get();
         // on récupère la liste complète des régions par ordre alphabétique
-        $localisations = Localisation::select('id','code','name','slug')->oldest('name')->get();
-        //ensuite si un slug est présent pour la région, on la récupère, sinon on garde le null
-        $localisation = $localisationSlug ? Localisation::whereSlug($localisationSlug)->firstOrFail() : null;
+        $localisations = Localisation::select('id','code','name')->oldest('name')->get();
+    
         //on regarde s'il y a une pagination et on renvoie le numéro de la page.
         $page = $request->query('page', 0);
         // on renvoie tout ça dans un vue.
-        Return view('offresVue', compact('services', 'localisations', 'localisation', 'departementCode', 'communeCode', 'page'));
+        Return view('offresVue', compact('services', 'localisations', 'departementCode', 'communeCode', 'page'));
     }
 
     /**
