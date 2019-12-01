@@ -26,6 +26,13 @@ class ServiceController extends Controller
         return view('services.services_by_categorie_Offre', compact('services'));
     }
 
+    public function offreServicesList(Service $service){
+
+        $offreServices = OffreService::where('service_id', $service->id)->get();
+        return view('services.offre_services', compact('offreServices'));
+        
+    }
+
      /**
      * Display a listing of the resource.
      *
