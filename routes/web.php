@@ -22,7 +22,8 @@ Route::get('/welcome', function () {
 Auth::routes();
 
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/les offres', 'MapController@mapOffre')->name('les offres');
+Route::get('/les demandes', 'MapController@mapDemande')->name('les demandes');
 
 Route::group(['middleware' => 'auth'], function(){
     // routes for categories list
@@ -30,17 +31,17 @@ Route::group(['middleware' => 'auth'], function(){
     Route::resource('/categories', 'CategorieController');
 
     // routes for offreServices list
-    Route::get('/{service}/offreservices', 'OffreServiceController@offreServicesList')->name('offreServicesList');
-    Route::resource('offreservices','OffreServiceController');
+    //Route::get('/{service}/offreservices', 'OffreServiceController@offreServicesList')->name('offreServicesList');
+    //Route::resource('offreservices','OffreServiceController');
 
     //routes for services list
-    Route::get('/{categorie}/services','ServiceController@servicesByCategorieOffre')->name('servicesByCategorieOffre');
+   // Route::get('/{categorie}/services','ServiceController@servicesByCategorieOffre')->name('servicesByCategorieOffre');
 });
-//definition partielle des routes en excluant les methode index,show,destroy
-Route::resource('offresServices','SearchController')
-    ->parameters([
-        'offresServices' => 'search'
-    ])->except([
-        'index', 'show', 'destroy'
-    ]);
 
+
+Route::group(['middleware' =>'auth'],function()
+{
+    Route::get('voir/{offreService}','OffreServiceController@show')->name('offres.show');
+    Route::get('{localisation?}/{departement?}/{commune?}', 'OffreServiceController@index')->name('offres.index');
+    Route::post('recherche', 'OffreServiceController@search')->name('offres.search')->middleware('ajax');
+});
