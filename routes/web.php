@@ -38,10 +38,34 @@ Route::group(['middleware' => 'auth'], function(){
    // Route::get('/{categorie}/services','ServiceController@servicesByCategorieOffre')->name('servicesByCategorieOffre');
 });
 
-
+// Les routes pour OffreServiceController & DemandeServiceController
+    // On définit partiellement les routes de la resource en excluant(except) index, show et destroy 
+    // qui seront définis ailleurs.
+Route::resource('offreServices', 'OffreServiceController')
+    ->parameters([
+        'offreServices'=>'offreService'
+    ])->except([
+        'index','show','destroy'
+    ]);
 Route::group(['middleware' =>'auth'],function()
 {
     Route::get('voir/{offreService}','OffreServiceController@show')->name('offres.show');
-    Route::get('{localisation?}/{departement?}/{commune?}', 'OffreServiceController@index')->name('offres.index');
-    Route::post('recherche', 'OffreServiceController@search')->name('offres.search')->middleware('ajax');
+    Route::get('{localisation0ffre?}/{departementOffre?}/{commune0ffre?}', 'OffreServiceController@index')->name('offres.index');
+    Route::post('rechercheOffre', 'OffreServiceController@search')->name('offres.search')->middleware('ajax');
 });
+
+Route::resource('demandeServices', 'DemandeServiceController')
+    ->parameters([
+        'demandeServices'=>'demandeService'
+    ])->except([
+        'index','show','destroy'
+    ]);
+Route::group(['middleware'=>'auth'], function()
+{
+    Route::get('voir/{demandeService}','DemandeServiceController@show')->name('demandes.show');
+    Route::get('{localisationDemande?}/{departementDemande?}/{communeDemande?}', 'DemandeServiceController@index')->name('demandes.index');
+    Route::post('rechercheDemande', 'DemandeServiceController@search')->name('demandes.search')->middleware('ajax');
+}
+);
+
+
