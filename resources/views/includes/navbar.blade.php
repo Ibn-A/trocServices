@@ -28,10 +28,10 @@
                             @endif
                         @else
                             <li class="nav-item active">
-                                <a class="nav-link" href="{{route('categories.index')}}">les offres <span class="sr-only">(current)</span></a>
+                                <a class="nav-link" href="{{route('les offres')}}">les offres <span class="sr-only">(current)</span></a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="{{route('categories.demandesIndex')}}">les demandes</a>
+                                <a class="nav-link" href="{{route('les demandes')}}">les demandes</a>
                             </li>
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
@@ -39,7 +39,7 @@
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                    <a class ="dropdown-item" href=""> {{__('Profil')}}</a>
+                                    <a class ="dropdown-item" href=""> {{__('Mon profil')}}</a>
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
