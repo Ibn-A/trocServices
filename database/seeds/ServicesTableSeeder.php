@@ -55,12 +55,7 @@ class ServicesTableSeeder extends Seeder
                 'categorie_id'=> 2    
             ]
         );
-        App\Service::create(
-            [
-                'nomService'=>'Autres',
-                'categorie_id'=> 2    
-            ]
-        );
+        
         // population pour Aide ménagère.
         App\Service::create(
             [

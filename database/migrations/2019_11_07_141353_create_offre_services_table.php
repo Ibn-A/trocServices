@@ -24,7 +24,8 @@ class CreateOffreServicesTable extends Migration
             $table->string('commune_name');
             $table->string('commune_postal');
             $table->string('pseudo');
-            $table->date('email');
+            $table->string('email');
+            $table->date('limit');
             $table->boolean('active')->default(false);
 
             $table->unsignedBigInteger('user_id');

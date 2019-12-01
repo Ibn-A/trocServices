@@ -2,9 +2,9 @@
 
 /** @var \Illuminate\Database\Eloquent\Factory $factory */
 
-use App\Model;
 use Carbon\Carbon;
 use App\Localisation;
+use App\OffreService;
 use Faker\Generator as Faker;
 
 function getRandGeo($url)
@@ -15,7 +15,7 @@ function getRandGeo($url)
     return $elements[$id];
 }
 
-$factory->define(Model::class, function (Faker $faker) {
+$factory->define(OffreService::class, function (Faker $faker) {
 
     $localisation_id = rand(1, 12);
     $localisation_code = Localisation::find($localisation_id)->code;
@@ -27,7 +27,7 @@ $factory->define(Model::class, function (Faker $faker) {
 
         'titre' => $faker->sentence($nbWords = 3, $variableNbWords = true),
         'texte' => $faker->paragraph($nbSentences = 3, $variableNbSentences = true),
-        'service_id' => rand(1, 10),
+        'service_id' => rand(1, 18),
         'localisation_id' => $localisation_id,
         'user_id' => rand(2, 3),
         'departement' => $departement['code'],
@@ -38,7 +38,5 @@ $factory->define(Model::class, function (Faker $faker) {
         'email' => $faker->email,
         'limit' => $obsolete ? Carbon::now()->subDayss(rand(1, 30)) : Carbon::now()->addWeeks(rand(1, 4)),
         'active' => rand(0, 1),
-
-        
     ];
 });

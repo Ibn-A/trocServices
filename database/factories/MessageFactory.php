@@ -2,15 +2,15 @@
 
 /** @var \Illuminate\Database\Eloquent\Factory $factory */
 
-use App\Model;
+use App\Message;
 use Faker\Generator as Faker;
 
-$factory->define(Model::class, function (Faker $faker) {
-
+$factory->define(Message::class, function (Faker $faker) {
     return [
+        'titre' => $faker->sentence($nbWords = 3, $variableNbWords = true),
         'email' => $faker->email,
         'texte' => $faker->paragraph($nbSentences = 3, $variableNbSentences = true),
-        'offreService_id' => rand(1, 10),
-        'demandeService_id' => rand(1, 10),
+        'OffreService_id' => rand(1, 10),
+        'DemandeService_id' => rand(1, 10)
     ];
 });
