@@ -6,9 +6,7 @@
             <div class="col-12 col-md-3 col-lg-3">
                 <a class="btn btn-primary" href="" role="button">Proposer un service</a>
             </div>
-            <div class="col-12 col-md-3 col-lg-3">
-                <a class="btn btn-primary" href="" role="button">Poster une demande</a>
-            </div>
+            <h1>Les Offres de Services</h1>
             <div class="col-12 col-md-9 col-lg-9">
                 <svg xmlns:svg="http://www.w3.org/2000/svg" viewBox="0 0 900 900">
                     <a href="{{route('offres.index', 'occitanie')}}">
