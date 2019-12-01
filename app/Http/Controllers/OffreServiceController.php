@@ -10,7 +10,7 @@ class OffreServiceController extends Controller
      * Display a listing of the resource.
      *
      * @param \Illuminate\Http\Request $request
-     * @param String $regionSlug
+     * @param String $localisationSlug
      * @param Integer $departementCode
      * @param Integer $communeCode
      * @return \Illuminate\Http\Response
