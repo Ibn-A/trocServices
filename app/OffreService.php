@@ -31,4 +31,13 @@ class OffreService extends Model
     {
         return $this->belongsTo('App\Localisaton');
     }
+    /**
+     * Obtenir les messages liées a une offreService.
+     */
+    public function message()
+    {
+        return $this->hasMany('App\Message');
+    }
+
+
 }

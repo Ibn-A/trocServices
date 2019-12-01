@@ -33,16 +33,10 @@ class DemandeService extends Model
     /**
      * Obtenir les messages liées à la demandeService.
      */
-    public function messageDemande()
+    public function message()
     {
-        return $this->hasMany('App\DemandeService');
+        return $this->hasMany('App\Message');
     }
 
-    /**
-     * Obtenir les messages liées à l'offreService.
-     */
-    public function messageOffre()
-    {
-        return $this->hasMany('App\OffreService');
-    }
+
 }
