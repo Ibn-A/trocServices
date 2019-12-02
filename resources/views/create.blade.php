@@ -52,8 +52,7 @@
                         </div>
                         <div class="form-group">
                             <label for="departement">Département</label>
-                            <select class="custom-select" name="departement" id="departement">
-                                
+                            <select class="custom-select" name="departement" id="departement">  
                             </select>
                         </div>
                         <div class="form-group">
