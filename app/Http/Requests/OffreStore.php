@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests;
 
+use App\Http\Requests\OffreStore;
 use Illuminate\Foundation\Http\FormRequest;
 
 class OffreStore extends FormRequest
