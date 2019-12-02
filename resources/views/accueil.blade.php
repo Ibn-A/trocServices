@@ -43,6 +43,10 @@
                         @endif
                     @else
                         <li class="nav-item">
+                            <a class="btn btn-primary" href="{{route('offreServices.create')}}" role="button"> Proposer une offre</a>
+
+                        </li>
+                        <li class="nav-item">
                             <a class="nav-link" href="{{route('les offres')}}">les offres <span class="sr-only">(current)</span></a>
                         </li>
                         <li class="nav-item">
