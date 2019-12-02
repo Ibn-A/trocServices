@@ -6,6 +6,7 @@ use App\Service;
 use Carbon\Carbon;
 use App\Localisation;
 use Illuminate\Http\Request;
+use App\Repositories\OffreRepository;
 
 class OffreServiceController extends Controller
 {
@@ -23,11 +24,10 @@ class OffreServiceController extends Controller
         $services = Service::select('nomService', 'id')->oldest('nomService')->get();
         // on récupère la liste complète des régions par ordre alphabétique
         $localisations = Localisation::select('id','code','name')->oldest('name')->get();
-    
         //on regarde s'il y a une pagination et on renvoie le numéro de la page.
         $page = $request->query('page', 0);
         // on renvoie tout ça dans un vue.
-        Return view('offresVue', compact('services', 'localisations', 'departementCode', 'communeCode', 'page'));
+        Return view('offreServices.offresVue', compact('services', 'localisations', 'departementCode', 'communeCode', 'page'));
     }
 
     /**
@@ -40,6 +40,7 @@ class OffreServiceController extends Controller
 
         $services = Service::select('nomService','id')->oldest('nomService')->get();
         $localisations = Localisation::select('name','id')->oldest('name')->get();
+
         return view('create', compact('services','localisations'));
 
     }
@@ -116,4 +117,17 @@ class OffreServiceController extends Controller
     {
         //
     }
+
+    /**
+     * Search ads.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function search(Request $request)
+    {
+        $offreServices = $this->offreRepository->search($request);
+        return view('partials.offreServices', compact('offreServices'));
+    }
+
 }

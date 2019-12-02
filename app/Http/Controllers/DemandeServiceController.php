@@ -26,7 +26,7 @@ class DemandeServiceController extends Controller
         //on regarde s'il y a une pagination et on renvoie le numéro de la page.
         $page = $request->query('page', 0);
         // on renvoie tout ça dans un vue.
-        Return view('demandesVue', compact('services', 'localisations', 'departementCode', 'communeCode', 'page'));
+        Return view('demandeServices.demandesVue', compact('services', 'localisations', 'departementCode', 'communeCode', 'page'));
     }
 
     /**
