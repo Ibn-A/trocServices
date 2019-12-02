@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\OffreService;
 use Illuminate\Http\Request;
 
 class SearchController extends Controller
@@ -13,7 +14,7 @@ class SearchController extends Controller
      */
     public function index()
     {
-        //
+        return view('search');
     }
 
     /**
@@ -80,5 +81,13 @@ class SearchController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function search(Request $request)
+    {
+        $query = $request->input('query');
+        $offreServices = OffreService::where('titre', 'like', "%{$query}%")->get();
+
+        return view('search')->with('offreServices', $offreServices);
     }
 }

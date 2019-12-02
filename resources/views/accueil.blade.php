@@ -85,10 +85,10 @@
                         <h2 class="=mb-5">le meilleur endroit où échanger le service dont vous avez besoin </h2>
                     </div>
                     <div class="col-md-10 col-lg-8 col-xl-12">
-                        <form>
+                        <form action="{{ route('search') }}" method="GET">
                             <div class="form-row">
                                 <div class="col-12 col-md-5 mb-2 mb-md-0">
-                                    <input type="recherche1" class="form-control form-control-lg" placeholder="Que recherches-tu ?">
+                                    <input type="text" class="form-control form-control-lg" placeholder="Que recherches-tu ?" name="query" id="query">
                                 </div>
                                 <div class="col-12 col-md-5 mb-2 mb-md-0">
                                         <input type="recherche2" class="form-control form-control-lg" placeholder="Où ?">

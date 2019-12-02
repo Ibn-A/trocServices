@@ -19,6 +19,9 @@ Route::get('/welcome', function () {
     return view('welcome');
 });
 
+// recherche
+Route::get('/search', 'SearchController@search')->name('search');
+
 Auth::routes();
 
 
@@ -67,5 +70,3 @@ Route::group(['middleware'=>'auth'], function()
     Route::post('rechercheDemande', 'DemandeServiceController@search')->name('demandes.search')->middleware('ajax');
 }
 );
-
-
