@@ -82,16 +82,15 @@
                 <div class="row">
                     <div class="col-xl-9 mx-auto">
                         <h1 class="mb-5">trocServices</h1>
-                        <h2 class="=mb-5">le meilleur endroit où échanger le service dont vous avez besoin </h2>
+                        <h2 class="mb-5">le meilleur endroit où échanger le service dont vous avez besoin </h2>
                     </div>
                     <div class="col-md-10 col-lg-8 col-xl-12">
                         <form action="{{ route('search') }}" method="GET">
                             <div class="form-row">
-                                <div class="col-12 col-md-5 mb-2 mb-md-0">
+                            <div class="col-12 col-md-9 mb-2 mb-md-0">
                                     <input type="text" class="form-control form-control-lg md-8" placeholder="Que recherches-tu ?" name="query" id="query">
                                 </div>
-                                
-                                <div class="col-12 col-md-2">
+                                <div class="col-12 col-md-3">
                                     <button type="submit" class="btn btn-block btn-lg btn-primary"><i class="fas fa-search"></i></button>
                                 </div>
                             </div>
