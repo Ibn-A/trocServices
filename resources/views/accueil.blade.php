@@ -126,7 +126,11 @@
                         <div class="mt-5">
                             <a href ="">
                             <i class="fas fa-4x fa-vector-square text-primary mb-4"></i></a>
+<<<<<<< HEAD
                             <h3 class="h4 mb-2">Beauté et bien être</h3>
+=======
+                            <h3 class="h4 mb-2">Béauté et bien être</h3>
+>>>>>>> accueil_update
                             <p class="text-muted mb-0">Lorem ipsum dolor sit, amet consectetur adipisicing elit.</p>
                         </div>
                     </div>
