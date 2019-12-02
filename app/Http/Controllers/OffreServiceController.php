@@ -55,7 +55,7 @@ class OffreServiceController extends Controller
     {
         $commune = json_decode(file_get_contents('https://geo.api.gouv.fr/communes/' . $request->commune), true);
         
-        $offreService = $this->offreRepository->create([
+        $offre = $this->offreRepository->create([
             'title' => $request->title,
             'texte' => $request->texte,
             'service_id' => $request->service,
