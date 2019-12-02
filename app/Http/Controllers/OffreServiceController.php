@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Service;
+use Carbon\Carbon;
 use App\Localisation;
 use Illuminate\Http\Request;
 
@@ -34,9 +35,13 @@ class OffreServiceController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
-        //
+
+        $services = Service::select('nomService','id')->oldest('nomService')->get();
+        $localisations = Localisation::select('name','id')->oldest('name')->get();
+        return view('create', compact('services','localisations'));
+
     }
 
     /**
@@ -45,9 +50,26 @@ class OffreServiceController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(OffreStore $request)
     {
-        //
+        $commune = json_decode(file_get_contents('https://geo.api.gouv.fr/communes/' . $request->commune), true);
+        
+        $offreService = $this->offreRepository->create([
+            'title' => $request->title,
+            'texte' => $request->texte,
+            'service_id' => $request->service,
+            'localisation_id' => $request->localisation,
+            'departement' => $request->departement,
+            'commune' => $request->commune,
+            'commune_name' => $commune['nom'],
+            'commune_postal' => $commune['codesPostaux'][0],
+            'user_id' => auth()->check() ? auth()->id() : 0,
+            'pseudo' => auth()->check() ? auth()->user()->name :$request->pseudo,
+            'email' => auth()->check() ? auth()->user()->email : $request->email,
+            'limit' => Carbon::now()->addWeeks($request->limit),
+        ]);
+        
+        return view('adconfirm');
     }
 
     /**
