@@ -2,15 +2,29 @@
 
 @section('content')
 
-<section class="section">
-    <div class="container has-text-centered">
-        <h2 class="title">Les services</h2>
-
-        @foreach ($offreServices as $offre)
-            <div>{{ $offre->titre }}</div>
-        @endforeach
-             
+@foreach($offreServices as $offre)
+<a href="" class="blockAd">
+        <div class="card d-flex flex-row">
+            <div class="card-header">
+                    <img class="rounded" src="" alt="">
+            </div>
+            <div class="card-body">
+                <h4 class="card-title">{{ $offre->titre }}</h4>
+                <p class="card-text">{{ $offre->service->nomService }}</p>
+                <p class="card-text">
+                    {{$offre->pseudo}}<br>
+                    {{$offre->email}}<br>
+                    {{ $offre->commune_name . ' (' . $offre->commune_postal . ')'}}<br>
+                    {{ $offre->created_at->calendar() }}
+                </p>
+            </div>
+        </div>
+    </a>
+    <br>
+@endforeach
+<div class="d-flex">
+    <div class="mx-auto">
     </div>
-</section>
+</div>
 
 @endsection

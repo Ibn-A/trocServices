@@ -88,11 +88,9 @@
                         <form action="{{ route('search') }}" method="GET">
                             <div class="form-row">
                                 <div class="col-12 col-md-5 mb-2 mb-md-0">
-                                    <input type="text" class="form-control form-control-lg" placeholder="Que recherches-tu ?" name="query" id="query">
+                                    <input type="text" class="form-control form-control-lg md-8" placeholder="Que recherches-tu ?" name="query" id="query">
                                 </div>
-                                <div class="col-12 col-md-5 mb-2 mb-md-0">
-                                        <input type="recherche2" class="form-control form-control-lg" placeholder="Où ?">
-                                    </div>
+                                
                                 <div class="col-12 col-md-2">
                                     <button type="submit" class="btn btn-block btn-lg btn-primary"><i class="fas fa-search"></i></button>
                                 </div>
