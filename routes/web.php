@@ -70,3 +70,19 @@ Route::group(['middleware'=>'auth'], function()
     Route::post('rechercheDemande', 'DemandeServiceController@search')->name('demandes.search')->middleware('ajax');
 }
 );
+// Gestion de l'interface utilisateur.
+Route::prefix('utilisateur')->middleware('user')->group(function () {
+    Route::get('/', 'UserController@index')->name('user.index');
+    Route::prefix('offreService')->group(function () {
+        Route::get('actives', 'UserController@actives')->name('user.actives');
+        Route::get('obsoletes','UserController@bsoletes')->name('user.obsoletes');
+        Route::get('attente', 'UserController@attente')->name('user.attente');
+    });
+    Route::prefix('profil')->group (function () {
+        Route::get('email', 'UserController@emailEdit')->name('user.email.edit');
+        Route::get('email', 'UserController@emailUpdate')->name('user.email.update');
+        Route::get('donnees', 'UserController@data')-> name('user.data');
+
+    });
+
+});
