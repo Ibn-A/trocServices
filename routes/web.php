@@ -67,7 +67,7 @@ Route::group(['middleware'=>'auth'], function()
 {
     Route::get('voir/{demandeService}','DemandeServiceController@show')->name('demandes.show');
     Route::get('{localisationDemande?}/{departementDemande?}/{communeDemande?}', 'DemandeServiceController@index')->name('demandes.index');
-    Route::post('rechercheDemande', 'DemandeServiceController@search')->name('demandes.search')->middleware('ajax');*/
+    Route::post('rechercheDemande', 'DemandeServiceController@search')->name('demandes.search')->middleware('ajax');
     Route::get('profile/utilisateur','UserController@view')->name('user.view');
 }
 );
