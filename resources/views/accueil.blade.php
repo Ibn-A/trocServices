@@ -82,7 +82,6 @@
                 <div class="row">
                     <div class="col-xl-9 mx-auto">
                         <h1 class="mb-5">trocServices</h1>
-<<<<<<< HEAD
                         <h2 class="mb-5">le meilleur endroit où échanger le service dont vous avez besoin </h2>
                     </div>
                     <div class="col-md-10 col-lg-8 col-xl-12">
@@ -129,44 +128,32 @@
                         <div class="mt-5">
                             <a href ="">
                             <i class="fas fa-4x fa-vector-square text-primary mb-4"></i></a>
-<<<<<<< HEAD
                             <h3 class="h4 mb-2">Beauté et bien être</h3>
-=======
                             <h3 class="h4 mb-2">Lorem ipsum</h3>
->>>>>>> accueil_update
                             <p class="text-muted mb-0">Lorem ipsum dolor sit, amet consectetur adipisicing elit.</p>
                         </div>
                     </div>
                     <div class="col-lg-3 col-md-6 text-center">
                         <div class="mt-5">
                             <i class="fas fa-4x fa-vector-square text-primary mb-4"></i>
-<<<<<<< HEAD
                             <h3 class="h4 mb-2">Cours particuliers</h3>
-=======
-                            <h3 class="h4 mb-2">Lorem ipsum</h3>
->>>>>>> accueil_update
+
                             <p class="text-muted mb-0">Lorem ipsum dolor sit, amet consectetur adipisicing elit.</p>
                         </div>
                     </div>
                     <div class="col-lg-3 col-md-6 text-center">
                         <div class="mt-5">
                             <i class="fas fa-4x fa-vector-square text-primary mb-4"></i>
-<<<<<<< HEAD
+
                             <h3 class="h4 mb-2">Animaux</h3>
-=======
-                            <h3 class="h4 mb-2">Lorem ipsum</h3>
->>>>>>> accueil_update
+
                             <p class="text-muted mb-0">Lorem ipsum dolor sit, amet consectetur adipisicing elit§</p>
                         </div>
                     </div>
                     <div class="col-lg-3 col-md-6 text-center">
                         <div class="mt-5">
                             <i class="fas fa-4x fa-vector-square text-primary mb-4"></i>
-<<<<<<< HEAD
                             <h3 class="h4 mb-2">Démenagement</h3>
-=======
-                            <h3 class="h4 mb-2">Lorem ipsum</h3>
->>>>>>> accueil_update
                             <p class="text-muted mb-0">Lorem ipsum dolor sit, amet consectetur adipisicing elit?</p>
                         </div>
                     </div>
@@ -248,9 +235,6 @@
       </div>
     </div>
   </footer>
-
-
-
 
 
 
