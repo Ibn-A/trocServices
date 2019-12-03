@@ -27,7 +27,7 @@ class OffreServiceController extends Controller
         //on regarde s'il y a une pagination et on renvoie le numéro de la page.
         $page = $request->query('page', 0);
         // on renvoie tout ça dans un vue.
-        return view('offreServices.offresVue', compact('services', 'localisations', 'departementCode', 'communeCode', 'page'));
+        Return view('offreServices.offresVue', compact('services', 'localisations', 'departementCode', 'communeCode', 'page'));
     }
 
     /**

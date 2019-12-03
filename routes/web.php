@@ -34,11 +34,11 @@ Route::group(['middleware' => 'auth'], function(){
     Route::resource('/categories', 'CategorieController');
 
     // routes for offreServices list
-    Route::get('/{service}/offreservices', 'OffreServiceController@offreServicesList')->name('offreServicesList');
-    Route::resource('offreservices','OffreServiceController');
+    //Route::get('/{service}/offreservices', 'OffreServiceController@offreServicesList')->name('offreServicesList');
+    //Route::resource('offreservices','OffreServiceController');
 
     //routes for services list
-     Route::get('/{categorie}/services','ServiceController@servicesByCategorieOffre')->name('servicesByCategorieOffre');
+   // Route::get('/{categorie}/services','ServiceController@servicesByCategorieOffre')->name('servicesByCategorieOffre');
 });
 
 // Les routes pour OffreServiceController & DemandeServiceController
@@ -55,12 +55,6 @@ Route::group(['middleware' =>'auth'],function()
     Route::get('voir/{offreService}','OffreServiceController@show')->name('offres.show');
     Route::get('{localisation0ffre?}/{departementOffre?}/{commune0ffre?}', 'OffreServiceController@index')->name('offres.index');
     Route::post('rechercheOffre', 'OffreServiceController@search')->name('offres.search')->middleware('ajax');
-
-    Route::get('voir/{demandeService}','DemandeServiceController@show')->name('demandes.show');
-    Route::get('{localisationDemande?}/{departementDemande?}/{communeDemande?}', 'DemandeServiceController@index')->name('demandes.index');
-    Route::post('rechercheDemande', 'DemandeServiceController@search')->name('demandes.search')->middleware('ajax');
-    Route::get('profile/utilisateur','UserController@view')->name('user.view');
-
 });
 
 Route::resource('demandeServices', 'DemandeServiceController')
@@ -69,3 +63,10 @@ Route::resource('demandeServices', 'DemandeServiceController')
     ])->except([
         'index','show','destroy'
     ]);
+Route::group(['middleware'=>'auth'], function()
+{
+    Route::get('voir/{demandeService}','DemandeServiceController@show')->name('demandes.show');
+    Route::get('{localisationDemande?}/{departementDemande?}/{communeDemande?}', 'DemandeServiceController@index')->name('demandes.index');
+    Route::post('rechercheDemande', 'DemandeServiceController@search')->name('demandes.search')->middleware('ajax');
+}
+);
