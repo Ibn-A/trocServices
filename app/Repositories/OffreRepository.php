@@ -31,3 +31,15 @@ class AdRepository
             ->latest()
             ->paginate(3);
     }
+    /**
+     * Methode getByUser & activeCount
+     */
+    public function activeCount($offreServices)
+    {
+        return $offreServices->where('active', true)->where('limit','>=', Carbon::now())->count();
+    }
+
+    public function getByUser($user)
+    {
+        return $user->offreServices()->get();
+    }

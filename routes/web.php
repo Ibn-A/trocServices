@@ -69,5 +69,3 @@ Route::resource('demandeServices', 'DemandeServiceController')
     ])->except([
         'index','show','destroy'
     ]);
-
-

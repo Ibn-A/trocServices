@@ -1,6 +1,76 @@
 <!doctype html>
 <html lang="fr">
 
+<<<<<<< HEAD
+    <head>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+        <!-- Place your kit's code here -->
+        <script src="https://kit.fontawesome.com/1d87572e97.js" crossorigin="anonymous"></script>
+        <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
+
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        
+        <!-- Style CSS -->
+        <link href="{{ asset('css/accueil.css') }}" rel="stylesheet">
+
+        <title>trocServices</title>
+    </head>
+
+    <body>
+
+        <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light ">
+            <a class="navbar-brand" href="{{ url('/') }}">
+                <img src="/img/solidR.svg" width="40" height="30" class="d-inline-block align-top" alt="">
+                trocServices
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav" >
+                <ul class="navbar-nav ml-auto">  
+                    <!-- Authentication Links -->
+                    @guest
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('login') }}">{{ __('Se connecter') }}</a>
+                        </li>
+                        @if (Route::has('register'))
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('register') }}">{{ __("S'inscrire") }}</a>
+                            </li>
+                        @endif
+                    @else
+                        <li class="nav-item">
+                            <a class="btn btn-primary" href="{{route('offreServices.create')}}" role="button"> Proposer une offre</a>
+
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{route('les offres')}}">les offres <span class="sr-only">(current)</span></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{route('les demandes')}}">les demandes</a>
+                        </li>
+                           
+                        <li class="nav-item dropdown">
+                            <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                {{ Auth::user()->name }} <span class="caret"></span>
+                            </a>
+
+                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                <a class ="dropdown-item" href="{{route('user.index') }}"> {{__('Mon profil')}}</a>
+                                <a class="dropdown-item" href="{{ route('logout') }}"
+                                    onclick="event.preventDefault();
+                                                    document.getElementById('logout-form').submit();">
+                                    {{ __('Se deconnecter') }}
+                                </a>
+
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                    @csrf
+                                </form>
+=======
 <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
@@ -39,6 +109,7 @@
                         <div class="form-row">
                             <div class="col-12 col-md-9 mb-2 mb-md-0">
                                 <input type="text" class="form-control form-control-lg md-8" placeholder="Que recherches-tu ?" name="query" id="query">
+>>>>>>> ff530bcb5190ad7398e49e8b8211ac901927a6a8
                             </div>
                             <div class="col-12 col-md-3">
                                 <button type="submit" class="btn btn-block btn-lg btn-primary"><i class="fas fa-search"></i></button>
