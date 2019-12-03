@@ -34,11 +34,11 @@ Route::group(['middleware' => 'auth'], function(){
     Route::resource('/categories', 'CategorieController');
 
     // routes for offreServices list
-    //Route::get('/{service}/offreservices', 'OffreServiceController@offreServicesList')->name('offreServicesList');
-    //Route::resource('offreservices','OffreServiceController');
+    Route::get('/{service}/offreservices', 'OffreServiceController@offreServicesList')->name('offreServicesList');
+    Route::resource('offreservices','OffreServiceController');
 
     //routes for services list
-   // Route::get('/{categorie}/services','ServiceController@servicesByCategorieOffre')->name('servicesByCategorieOffre');
+     Route::get('/{categorie}/services','ServiceController@servicesByCategorieOffre')->name('servicesByCategorieOffre');
 });
 
 // Les routes pour OffreServiceController & DemandeServiceController
@@ -68,8 +68,10 @@ Route::group(['middleware'=>'auth'], function()
     Route::get('voir/{demandeService}','DemandeServiceController@show')->name('demandes.show');
     Route::get('{localisationDemande?}/{departementDemande?}/{communeDemande?}', 'DemandeServiceController@index')->name('demandes.index');
     Route::post('rechercheDemande', 'DemandeServiceController@search')->name('demandes.search')->middleware('ajax');
+    Route::get('profile/utilisateur','UserController@view')->name('user.view');
 }
 );
+<<<<<<< HEAD
 // Gestion de l'interface utilisateur.
 Route::prefix('utilisateur')->middleware('user')->group(function () {
     Route::get('/', 'UserController@index')->name('user.index');
@@ -86,3 +88,6 @@ Route::prefix('utilisateur')->middleware('user')->group(function () {
     });
 
 });
+=======
+
+>>>>>>> ff530bcb5190ad7398e49e8b8211ac901927a6a8
