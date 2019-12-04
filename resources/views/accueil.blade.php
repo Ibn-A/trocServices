@@ -20,7 +20,6 @@
     </head>
 
     <body>
-
         <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light ">
             <a class="navbar-brand" href="{{ url('/') }}">
                 <img src="/img/solidR.svg" width="40" height="30" class="d-inline-block align-top" alt="logo">
@@ -43,11 +42,11 @@
                         @endif
                     @else
                         <li class="nav-item">
-                            <a class="btn btn-primary" href="{{route('offreServices.create')}}" role="button"> Proposer une offre</a>
+                            <a class="btn btn-primary" href="{{route('offreServices.create')}}" role="button"> Proposer un service</a>
 
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{route('les offres')}}">les offres <span class="sr-only">(current)</span></a>
+                            <a class="nav-link" href="{{route('les offres')}}">les offres <span></span></a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="{{route('les demandes')}}">les demandes</a>
