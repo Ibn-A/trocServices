@@ -29,10 +29,11 @@
             @yield('content')
         </main>
 
-        <footer id="footer" class="footer-1">
+        <footer>
         @include('includes.footer')
         </footer>
         
     </div>
+    <script src="{{asset('js/app.js') }}"></script>
 </body>
 </html>

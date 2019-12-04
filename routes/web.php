@@ -15,10 +15,6 @@ Route::get('/', function () {
     return view('accueil');
 });
 
-Route::get('/welcome', function () {
-    return view('welcome');
-});
-
 // recherche
 Route::get('/search', 'SearchController@search')->name('search');
 
