@@ -37,6 +37,12 @@ class DemandeService extends Model
     {
         return $this->hasMany('App\Message');
     }
+     /**
+     * Obtenir les matching(offres de services) liées a une demande de Service.
+     */
+    public function matching(){
+        return $this->hasMany('App\Matching');
+    }
 
 
 }

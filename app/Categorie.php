@@ -12,7 +12,7 @@ class Categorie extends Model
     /**
      * Obtenir tous les services associés à une catégorie.
      */
-    public function services()
+    public function service()
     {
         return $this->hasMany('App\service');
     }

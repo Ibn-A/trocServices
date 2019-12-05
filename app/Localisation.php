@@ -7,19 +7,19 @@ use Illuminate\Database\Eloquent\Model;
 class Localisation extends Model
 {
     protected $fillable = [
-        'nom','code'
+        'nom', 'slug','code'
     ];
     /**
      * Obtenir les demandes de services d'une localisation.
      */
-    public function demandeServices()
+    public function demandeService()
     {
         return $this->hasMany('App\DemandeService');
     }
     /**
      * Obtenir les offres de services d'une localisation.
      */
-    public function offreServices()
+    public function offreService()
     {
         return $this->hasMany('App\OffreService');
     }

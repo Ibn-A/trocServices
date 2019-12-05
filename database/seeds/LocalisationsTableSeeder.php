@@ -15,7 +15,7 @@ class LocalisationsTableSeeder extends Seeder
             [
                 'name' => 'Île-de-France',
                 'code' => 11,
-                
+                'slug' =>'ile_de_france',
                 'created_at' => now(),
                 'updated_at' => now(),
             ]
@@ -25,7 +25,7 @@ class LocalisationsTableSeeder extends Seeder
             [
                 'name' => 'Centre-Val de Loire',
                 'code' => 24,
-               
+                'slug' => 'centre',
                 'created_at' => now(),
                 'updated_at' => now(),  
             ]
@@ -35,7 +35,7 @@ class LocalisationsTableSeeder extends Seeder
             [
                 'name' => 'Bourgogne-Franche-Comté',
                 'code' => 27,
-                
+                'slug' => 'bourgogne',
                 'created_at' => now(),
                 'updated_at' => now(),
                 
@@ -46,7 +46,7 @@ class LocalisationsTableSeeder extends Seeder
             [
                 'name' => 'Hauts-de-France',
                 'code' => 32,
-                
+                'slug' => 'haut_de_france',
                 'created_at' => now(),
                 'updated_at' => now(),  
             ]
@@ -56,7 +56,7 @@ class LocalisationsTableSeeder extends Seeder
             [
                 'name' => 'Grand Est',
                 'code' => 44,
-                
+                'slug' => 'grand_est',
                 'created_at' => now(),
                 'updated_at' => now(),   
             ]
@@ -66,7 +66,7 @@ class LocalisationsTableSeeder extends Seeder
             [
                 'name' => 'Pays de la Loire',
                 'code' => 52,
-               
+                'slug' => 'pays_de_la_loire',
                 'created_at' => now(),
                 'updated_at' => now(),
                 
@@ -77,7 +77,7 @@ class LocalisationsTableSeeder extends Seeder
             [
                 'name' => 'Bretagne',
                 'code' => 53,
-                
+                'slug' => 'bretagne',
                 'created_at' => now(),
                 'updated_at' => now(),
                 
@@ -88,7 +88,7 @@ class LocalisationsTableSeeder extends Seeder
             [
                 'name' => 'Nouvelle-Aquitaine',
                 'code' => 75,
-                
+                'slug' => 'aquitaine',
                 'created_at' => now(),
                 'updated_at' => now(),
                 
@@ -99,7 +99,7 @@ class LocalisationsTableSeeder extends Seeder
             [
                 'name' => 'Occitanie',
                 'code' => 76,
-                
+                'slug' => 'occitanie',
                 'created_at' => now(),
                 'updated_at' => now(),
 
@@ -110,7 +110,7 @@ class LocalisationsTableSeeder extends Seeder
             [
                 'name' => 'Auvergne-Rhône-Alpes',
                 'code' => 84,
-                
+                'slug' => 'auvergne',
                 'created_at' => now(),
                 'updated_at' => now(),
                 
@@ -121,7 +121,7 @@ class LocalisationsTableSeeder extends Seeder
             [
                 'name' => "Provence-Alpes-Côte d'Azur",
                 'code' => 93,
-                
+                'slug' => 'provence',
                 'created_at' => now(),
                 'updated_at' => now(),
                 
@@ -132,7 +132,7 @@ class LocalisationsTableSeeder extends Seeder
             [
                 'name' => 'Corse',
                 'code' => 94,
-                
+                'slug'=> 'corse',
                 'created_at' => now(),
                 'updated_at' => now(),
                 
@@ -143,7 +143,7 @@ class LocalisationsTableSeeder extends Seeder
             [
                 'name' => 'Normandie',
                 'code' => 28,
-                
+                'slug' => 'normandie',
                 'created_at' => now(),
                 'updated_at' => now(),
                 

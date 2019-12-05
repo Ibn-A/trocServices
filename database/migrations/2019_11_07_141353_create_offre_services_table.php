@@ -48,6 +48,7 @@ class CreateOffreServicesTable extends Migration
                 ->on('localisations')
                 ->onDelete('restrict')
                 ->onUpdate('restrict');
+
         });
     }
 
