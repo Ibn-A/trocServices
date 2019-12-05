@@ -14,16 +14,19 @@ class OffreServiceController extends Controller
      * Display a listing of the resource.
      *
      * @param \Illuminate\Http\Request $request
+     * @param String $localisationSlug
      * @param Integer $departementCode
      * @param Integer $communeCode
      * @return \Illuminate\Http\Response
      */
-    public function index(Request $request, $departementCode = null, $communeCode = null)
+    public function index(Request $request, $localisationSlug = null, $departementCode = null, $communeCode = null)
     {
         // on récupère tous les services dans la vue dans l'ordre alphabétique
         $services = Service::select('nomService', 'id')->oldest('nomService')->get();
         // on récupère la liste complète des régions par ordre alphabétique
-        $localisations = Localisation::select('id','code','name')->oldest('name')->get();
+        $localisations = Localisation::select('id','code','nom', 'slug')->oldest('nom')->get();
+        //
+        $localisation = $localisationSlug ? Localisation::whereSlug($localisationSlug)->firstorFail() : null;
         //on regarde s'il y a une pagination et on renvoie le numéro de la page.
         $page = $request->query('page', 0);
         // on renvoie tout ça dans un vue.
