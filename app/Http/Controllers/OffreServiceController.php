@@ -24,7 +24,7 @@ class OffreServiceController extends Controller
         // on récupère tous les services dans la vue dans l'ordre alphabétique
         $services = Service::select('nomService', 'id')->oldest('nomService')->get();
         // on récupère la liste complète des régions par ordre alphabétique
-        $localisations = Localisation::select('id','code','nom', 'slug')->oldest('nom')->get();
+        $localisations = Localisation::select('id','name', 'slug', 'code')->oldest('name')->get();
         //
         $localisation = $localisationSlug ? Localisation::whereSlug($localisationSlug)->firstorFail() : null;
         //on regarde s'il y a une pagination et on renvoie le numéro de la page.
