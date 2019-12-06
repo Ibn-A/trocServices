@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('content')
-<div class="container">
+<div class="container py-4" style="background:orange">
     <div class="card bg-light">
         <h5 class="card-header">Votre offre de service</h5>
         <div class="card-body">
@@ -82,7 +82,7 @@
                         </div>
                     </div>
                 <br>
-                <button type="submit" class="btn btn-primary">Valider</button>
+                <button type="submit" class="btn btn-primary" href="">Valider</button>
             </form>
             <div id="preview" style="display: none;">
                 <div class="dz-preview dz-file-preview">
@@ -140,7 +140,7 @@
         
         $(() => {
             fillDepartements();
-            $('#region').change(() => { fillDepartements(); });
+            $('#localisation').change(() => { fillDepartements(); });
             $('#departement').change(() => { fillCommunes(); });
         })
     </script>

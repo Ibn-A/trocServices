@@ -69,7 +69,11 @@ class OffreServiceController extends Controller
             'email' => auth()->check() ? auth()->user()->email : $request->email,
             'limit' => Carbon::now()->addWeeks($request->limit),
         ]);
-        
+
+        if($request->session()->has('index')) {
+            $index = $request->session()->get('index');
+        }
+    
         return view('adconfirm');
     }
 
