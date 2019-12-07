@@ -1,12 +1,12 @@
- <template>
+<template>
 <div class="container">
     <div class="card bg-light">
         <h5 class="card-header">Votre recherche</h5>
         <div class="card-body">
             <form id="formAd" method="POST" :action="url">
                 <div class="form-group">
-                    <label for="category">Catégorie</label>
-                    <select class="custom-select" name="service" id="service" @change="onServiceChange()" v-model="categorySelected">
+                    <label for="service">Service</label>
+                    <select class="custom-select" name="service" id="service" @change="onServiceChange()" v-model="serviceSelected">
                         <option value="0">Toutes</option>
                         <option v-for="service in services" :key="service.id" :value="service.id">
                             {{ service.nomService }}
@@ -14,17 +14,17 @@
                     </select>
                 </div>
                 <div class="form-group">
-                    <label for="region">Région</label>
-                    <select class="custom-select" name="localisation" id="localisation" @change="onLocalisationChange()" v-model="regionSelected">
+                    <label for="localisation">Région</label>
+                    <select class="custom-select" name="localisation" id="localisation" @change="onLocalisationChange()" v-model="localisationSelected">
                         <option data-code="0" value="0">Toute la France</option>
                         <option v-for="localisation in localisations" :key="localisation.id" :value="localisation.id" :data-code="localisation.code">
-                            {{ localisation.nom }}
+                            {{ localisation.name }}
                         </option>
                     </select>
                 </div>
-                <div v-if="regionSelected != 0" class="form-group">
+                <div v-if="localisationSelected != 0" class="form-group">
                     <label for="departement">Département</label>
-                    <select class="custom-select" name="departement" id="departement" @change="onDepartementChange()" v-model="departementSelected">
+                    <select class="custom-select" name="departement" id="departement" @change="onDepartementChange" v-model="departementSelected">
                         <option value="0">Tous</option>
                         <option v-for="departement in departements" :key="departement.code" :value="departement.code">
                             {{ departement.nom }}
@@ -33,7 +33,7 @@
                 </div>
                 <div v-if="departementSelected != 0" class="form-group" >
                     <label for="commune">Commune</label>
-                    <select class="custom-select" name="commune" id="commune" @change="onCommuneChange()" v-model="communeSelected">
+                    <select class="custom-select" name="commune" id="commune" @change="onCommuneChange" v-model="communeSelected">
                         <option value="0">Toutes</option>
                         <option v-for="commune in communes" :key="commune.code" :value="commune.code">
                             {{ commune.nom }}
@@ -44,11 +44,10 @@
         </div>
     </div>
     <br>
-    <span v-html="ads"></span>
+    <span v-html="offres"></span>
 </div>
 </template>
 <script>
-
     export default {
         props: [
             'url',
@@ -60,25 +59,26 @@
                 serviceSelected: 0,
                 localisationSelected: 0,
                 localisationIndex: 0,
+                localisationSlug: '',
                 departements: [],
                 departementSelected: 0,
                 communes: [],
                 communeSelected: 0,
-                ads: ''
+                offres: ''
             }
         },
         methods: {
-            onCategoryChange() {
+            onServiceChange() {
                 this.submit();
             },
-            onRegionChange() {
+            onLocalisatonChange() {
                 const index = event.target.selectedIndex;
                 if (index) {
-                    this.regionSlug = this.regions[index - 1]['slug'];
+                    this.localisationSlug = this.localisations[index - 1]['slug'];
                     let code = event.target.options[index].attributes['data-code'].value;
                     this.fillDepartements(code);
                 } else {
-                    this.regionSelected = 0;
+                    this.localisationSelected = 0;
                 }
                 this.submit();
             },
@@ -118,18 +118,18 @@
                     method: 'post',
                     url: this.url + comp,
                     data: {
-                        'category': this.categorySelected,
-                        'region': this.regionSelected,
+                        'service': this.categorySelected,
+                        'localisation': this.regionSelected,
                         'departement': this.departementSelected,
                         'commune': this.communeSelected,
                         '_token': $('meta[name="csrf-token"]').attr('content')
                     }
                 })
                 .done(data => {
-                    this.ads = data;
+                    this.offres = data;
                     let ref = '/annonces';
-                    if(this.regionSelected) {
-                        ref += '/' + this.regionSlug
+                    if(this.localisationSelected) {
+                        ref += '/' + this.localisationSlug
                     }
                     if(this.departementSelected) {
                         ref += '/' + this.departementSelected
@@ -140,14 +140,14 @@
                     if(comp) {
                         ref += comp;
                     }
-                    history.pushState({}, 'Annonces', ref);
+                    history.pushState({}, 'Offres', ref);
                 })
             }
         },
         mounted(e) {
-            this.regionSelected = $('#start').attr('data-id');
-            if(this.regionSelected != 0) {
-                this.regionSlug = $('#start').attr('data-slug');
+            this.localisationSelected = $('#start').attr('data-id');
+            if(this.localisationSelected != 0) {
+                this.localisationSlug = $('#start').attr('data-slug');
                 this.fillDepartements($('#start').attr('data-code'));
                 const dep = $('#start').attr('data-departement');
                 if(dep) {
@@ -166,11 +166,8 @@
             }
         }
     }
-
     $('body').on('click', 'a.page-link', e => {
         e.preventDefault();
-        app.__vue__.$refs.adComp.submit(e, '?' + ($(e.currentTarget).attr('href')).split('?')[1]);
+        app.__vue__.$refs.offreComp.submit(e, '?' + ($(e.currentTarget).attr('href')).split('?')[1]);
     });
-
-
 </script>

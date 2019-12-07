@@ -1,7 +1,7 @@
 <?php
 namespace App\Repositories;
-use App\Models\Ad;
 use Carbon\Carbon;
+use App\OffreService;
 
 class OffreRepository
 {

@@ -21,8 +21,8 @@ Route::get('/search', 'SearchController@search')->name('search');
 Auth::routes();
 
 
-Route::get('/les offres', 'MapController@mapOffre')->name('les offres');
-Route::get('/les demandes', 'MapController@mapDemande')->name('les demandes');
+Route::get('/les_offres', 'MapController@mapOffre')->name('les offres');
+Route::get('/les_demandes', 'MapController@mapDemande')->name('les demandes');
 
 Route::group(['middleware' => 'auth'], function(){
     // routes for categories list
@@ -58,14 +58,14 @@ Route::group(['middleware' =>'auth'],function()
 {
 // Route Offre Service
 
-    Route::get('voir/{offreService}','OffreServiceController@show')->name('offres.show');
-    Route::get('{localisation0ffre?}/{departementOffre?}/{commune0ffre?}', 'OffreServiceController@index')->name('offres.index');
+    Route::get('voir_offre/{offreService}','OffreServiceController@show')->name('offres.show');
+    Route::get('les_offres/{localisation0ffre?}/{departementOffre?}/{commune0ffre?}', 'OffreServiceController@index')->name('offres.index');
     Route::post('rechercheOffre', 'OffreServiceController@search')->name('offres.search')->middleware('ajax');
 
 // Route Demande Service
 
-    Route::get('voir/{demandeService}','DemandeServiceController@show')->name('demandes.show');
-    Route::get('{localisationDemande?}/{departementDemande?}/{communeDemande?}', 'DemandeServiceController@index')->name('demandes.index');
+    Route::get('voir_demande/{demandeService}','DemandeServiceController@show')->name('demandes.show');
+    Route::get('les_demandes/{localisationDemande?}/{departementDemande?}/{communeDemande?}', 'DemandeServiceController@index')->name('demandes.index');
     Route::post('rechercheDemande', 'DemandeServiceController@search')->name('demandes.search')->middleware('ajax');
 
 });

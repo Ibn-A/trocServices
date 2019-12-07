@@ -25,12 +25,12 @@ class OffreServiceController extends Controller
         $services = Service::select('nomService', 'id')->oldest('nomService')->get();
         // on récupère la liste complète des régions par ordre alphabétique
         $localisations = Localisation::select('id','name', 'slug', 'code')->oldest('name')->get();
-        //
+        // on récupère le slug de la région si elle existe sinon on garde le null.
         $localisation = $localisationSlug ? Localisation::whereSlug($localisationSlug)->firstorFail() : null;
         //on regarde s'il y a une pagination et on renvoie le numéro de la page.
         $page = $request->query('page', 0);
         // on renvoie tout ça dans un vue.
-        Return view('offreServices.offresVue', compact('services', 'localisations', 'departementCode', 'communeCode', 'page'));
+        Return view('offreServices.offresVue', compact('services', 'localisations', 'localisation', 'departementCode', 'communeCode', 'page'));
     }
 
     /**
@@ -126,13 +126,30 @@ class OffreServiceController extends Controller
     }
 
     /**
-     * Search ads.
+     * Offre repository.
+     *
+     * @var App\Repositories\OffreRepository
+     */
+    protected $offreRepository;
+    /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct(OffreRepository $offreRepository)
+    {
+        $this->offreRepository = $offreRepository;
+    }
+    /**
+     * Search offreServices.
      *
      * @param  \Illuminate\Http\Request  $request
+     * @param  String  $slug
      * @return \Illuminate\Http\Response
      */
     public function search(Request $request)
     {
+        setlocale (LC_TIME, 'fr_FR');
         $offreServices = $this->offreRepository->search($request);
         return view('partials.offreServices', compact('offreServices'));
     }
