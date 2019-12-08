@@ -77,7 +77,7 @@ class OffreServiceController extends Controller
             $index = $request->session()->get('index');
         }
     
-        return view('adconfirm');
+        return view('offreconfirm');
     }
 
     /**
@@ -125,7 +125,7 @@ class OffreServiceController extends Controller
         //
     }
 
-    /**
+       /**
      * Offre repository.
      *
      * @var App\Repositories\OffreRepository

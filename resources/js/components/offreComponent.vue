@@ -44,7 +44,7 @@
         </div>
     </div>
     <br>
-    <span v-html="offres"></span>
+    <span v-html="offreServices"></span>
 </div>
 </template>
 <script>
@@ -64,7 +64,7 @@
                 departementSelected: 0,
                 communes: [],
                 communeSelected: 0,
-                offres: ''
+                offreServices: ''
             }
         },
         methods: {

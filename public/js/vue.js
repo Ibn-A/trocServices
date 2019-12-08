@@ -156,7 +156,7 @@ __webpack_require__.r(__webpack_exports__);
       departementSelected: 0,
       communes: [],
       communeSelected: 0,
-      offres: ''
+      offreServices: ''
     };
   },
   methods: {
@@ -219,15 +219,15 @@ __webpack_require__.r(__webpack_exports__);
         method: 'post',
         url: this.url + comp,
         data: {
-          'service': this.categorySelected,
-          'localisation': this.regionSelected,
+          'service': this.serviceSelected,
+          'localisation': this.localisationSelected,
           'departement': this.departementSelected,
           'commune': this.communeSelected,
           '_token': $('meta[name="csrf-token"]').attr('content')
         }
       }).done(function (data) {
-        _this.offres = data;
-        var ref = '/annonces';
+        _this.offreService = data;
+        var ref = '/offreServices';
 
         if (_this.localisationSelected) {
           ref += '/' + _this.localisationSlug;
@@ -245,7 +245,7 @@ __webpack_require__.r(__webpack_exports__);
           ref += comp;
         }
 
-        history.pushState({}, 'Offres', ref);
+        history.pushState({}, 'OffreServies', ref);
       });
     }
   },
@@ -1034,7 +1034,7 @@ var render = function() {
     _vm._v(" "),
     _c("br"),
     _vm._v(" "),
-    _c("span", { domProps: { innerHTML: _vm._s(_vm.offres) } })
+    _c("span", { domProps: { innerHTML: _vm._s(_vm.offreServices) } })
   ])
 }
 var staticRenderFns = []

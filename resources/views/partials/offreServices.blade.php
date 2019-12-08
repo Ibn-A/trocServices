@@ -7,8 +7,8 @@
                 <h4 class="card-title">{{ $offreService->title }}</h4>
                 <p class="card-text">{{ $offreService->service->nomService }}</p>
                 <p class="card-text">
-                    {{ $ad->commune_name . ' (' . $ad->commune_postal . ')'}}<br>
-                    {{ $ad->created_at->calendar() }}
+                    {{ $offreService->commune_name . ' (' . $offreService->commune_postal . ')'}}<br>
+                    {{ $offreService->created_at->calendar() }}
                 </p>
             </div>
         </div>
