@@ -46,7 +46,7 @@ class LocalisationsTableSeeder extends Seeder
             [
                 'name' => 'Hauts-de-France',
                 'code' => 32,
-                'slug' => 'haut_de_france',
+                'slug' => 'hauts_de_france',
                 'created_at' => now(),
                 'updated_at' => now(),  
             ]
