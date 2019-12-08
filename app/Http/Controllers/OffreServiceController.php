@@ -11,6 +11,36 @@ use App\Repositories\OffreRepository;
 class OffreServiceController extends Controller
 {
     /**
+     * Offre repository.
+     *
+     * @var App\Repositories\OffreRepository
+    */
+    protected $offreRepository;
+    /**
+     * Create a new controller instance.
+     *
+     * @return void
+    */
+    public function __construct(OffreRepository $offreRepository)
+    {
+        $this->offreRepository = $offreRepository;
+    }
+    /**
+     * Search offreServices.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  String  $slug
+     * @return \Illuminate\Http\Response
+     */
+    public function search(Request $request)
+    {
+        setlocale (LC_TIME, 'fr_FR');
+        $offreServices = $this->offreRepository->search($request);
+        return view('partials.offreServices', compact('offreServices'));
+    }
+
+
+    /**
      * Display a listing of the resource.
      *
      * @param \Illuminate\Http\Request $request
@@ -123,35 +153,6 @@ class OffreServiceController extends Controller
     public function destroy($id)
     {
         //
-    }
-
-       /**
-     * Offre repository.
-     *
-     * @var App\Repositories\OffreRepository
-     */
-    protected $offreRepository;
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
-    public function __construct(OffreRepository $offreRepository)
-    {
-        $this->offreRepository = $offreRepository;
-    }
-    /**
-     * Search offreServices.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  String  $slug
-     * @return \Illuminate\Http\Response
-     */
-    public function search(Request $request)
-    {
-        setlocale (LC_TIME, 'fr_FR');
-        $offreServices = $this->offreRepository->search($request);
-        return view('partials.offreServices', compact('offreServices'));
     }
 
 }
