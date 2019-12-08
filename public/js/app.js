@@ -1862,6 +1862,204 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/OffreComponent.vue?vue&type=script&lang=js&":
+/*!*************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/OffreComponent.vue?vue&type=script&lang=js& ***!
+  \*************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({
+  props: ['url', 'services', 'localisations'],
+  data: function data() {
+    return {
+      serviceSelected: 0,
+      localisationSelected: 0,
+      localisationIndex: 0,
+      localisationSlug: '',
+      departements: [],
+      departementSelected: 0,
+      communes: [],
+      communeSelected: 0,
+      offreServices: ''
+    };
+  },
+  methods: {
+    onServiceChange: function onServiceChange() {
+      this.submit();
+    },
+    onLocalisationChange: function onLocalisationChange() {
+      var index = event.target.selectedIndex;
+
+      if (index) {
+        this.localisationSlug = this.localisations[index - 1]['slug'];
+        var code = event.target.options[index].attributes['data-code'].value;
+        this.fillDepartements(code);
+      } else {
+        this.localisationSelected = 0;
+      }
+
+      this.submit();
+    },
+    fillDepartements: function fillDepartements(code) {
+      if (code) {
+        var that = this;
+        $.get('https://geo.api.gouv.fr/regions/' + code + '/departements', function (data) {
+          that.departements = data;
+        });
+      }
+
+      this.departementSelected = 0;
+    },
+    onDepartementChange: function onDepartementChange() {
+      var index = event.target.selectedIndex;
+
+      if (index) {
+        this.fillCommunes(event.target.value);
+      } else {
+        this.departementSelected = 0;
+      }
+
+      this.submit();
+    },
+    onCommuneChange: function onCommuneChange() {
+      this.communeId = event.target.selectedIndex;
+      this.submit();
+    },
+    fillCommunes: function fillCommunes(code) {
+      if (code) {
+        var that = this;
+        $.get('https://geo.api.gouv.fr/departements/' + code + '/communes', function (data) {
+          that.communes = data;
+        });
+      }
+
+      this.communeSelected = 0;
+    },
+    submit: function submit(e) {
+      var _this = this;
+
+      var comp = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : '';
+      $.ajax({
+        method: 'post',
+        url: this.url + comp,
+        data: {
+          'service': this.serviceSelected,
+          'localisation': this.localisationSelected,
+          'departement': this.departementSelected,
+          'commune': this.communeSelected,
+          '_token': $('meta[name="csrf-token"]').attr('content')
+        }
+      }).done(function (data) {
+        _this.offres = data;
+        var ref = '/les-offres';
+
+        if (_this.localisationSelected) {
+          ref += '/' + _this.localisationSlug;
+        }
+
+        if (_this.departementSelected) {
+          ref += '/' + _this.departementSelected;
+        }
+
+        if (_this.communeSelected) {
+          ref += '/' + _this.communeSelected;
+        }
+
+        if (comp) {
+          ref += comp;
+        }
+
+        history.pushState({}, 'les-offres', ref);
+      });
+    }
+  },
+  mounted: function mounted(e) {
+    this.localisationSelected = $('#start').attr('data-id');
+
+    if (this.localisationSelected != 0) {
+      this.localisationSlug = $('#start').attr('data-slug');
+      this.fillDepartements($('#start').attr('data-code'));
+      var dep = $('#start').attr('data-departement');
+
+      if (dep) {
+        this.departementSelected = dep;
+        this.fillCommunes(dep);
+      }
+
+      var com = $('#start').attr('data-commune');
+
+      if (com) {
+        this.communeSelected = com;
+      }
+    }
+
+    if ($('#start').attr('data-page')) {
+      this.submit(e, '?page=' + $('#start').attr('data-page'));
+    } else {
+      this.submit();
+    }
+  }
+});
+$('body').on('click', 'a.page-link', function (e) {
+  e.preventDefault();
+
+  app.__vue__.$refs.offreComp.submit(e, '?' + $(e.currentTarget).attr('href').split('?')[1]);
+});
+
+/***/ }),
+
 /***/ "./node_modules/bootstrap/dist/js/bootstrap.js":
 /*!*****************************************************!*\
   !*** ./node_modules/bootstrap/dist/js/bootstrap.js ***!
@@ -37200,6 +37398,298 @@ render._withStripped = true
 
 /***/ }),
 
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/OffreComponent.vue?vue&type=template&id=1b39b4e6&":
+/*!*****************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/OffreComponent.vue?vue&type=template&id=1b39b4e6& ***!
+  \*****************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "container" }, [
+    _c("div", { staticClass: "card bg-light" }, [
+      _c("h5", { staticClass: "card-header" }, [_vm._v("Votre recherche")]),
+      _vm._v(" "),
+      _c("div", { staticClass: "card-body" }, [
+        _c(
+          "form",
+          { attrs: { id: "formAd", method: "POST", action: _vm.url } },
+          [
+            _c("div", { staticClass: "form-group" }, [
+              _c("label", { attrs: { for: "service" } }, [_vm._v("Service")]),
+              _vm._v(" "),
+              _c(
+                "select",
+                {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.serviceSelected,
+                      expression: "serviceSelected"
+                    }
+                  ],
+                  staticClass: "custom-select",
+                  attrs: { name: "service", id: "service" },
+                  on: {
+                    change: [
+                      function($event) {
+                        var $$selectedVal = Array.prototype.filter
+                          .call($event.target.options, function(o) {
+                            return o.selected
+                          })
+                          .map(function(o) {
+                            var val = "_value" in o ? o._value : o.value
+                            return val
+                          })
+                        _vm.serviceSelected = $event.target.multiple
+                          ? $$selectedVal
+                          : $$selectedVal[0]
+                      },
+                      function($event) {
+                        return _vm.onServiceChange()
+                      }
+                    ]
+                  }
+                },
+                [
+                  _c("option", { attrs: { value: "0" } }, [_vm._v("Toutes")]),
+                  _vm._v(" "),
+                  _vm._l(_vm.services, function(service) {
+                    return _c(
+                      "option",
+                      { key: service.id, domProps: { value: service.id } },
+                      [
+                        _vm._v(
+                          "\n                            " +
+                            _vm._s(service.nomService) +
+                            "\n                        "
+                        )
+                      ]
+                    )
+                  })
+                ],
+                2
+              )
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "form-group" }, [
+              _c("label", { attrs: { for: "localisation" } }, [
+                _vm._v("Région")
+              ]),
+              _vm._v(" "),
+              _c(
+                "select",
+                {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.localisationSelected,
+                      expression: "localisationSelected"
+                    }
+                  ],
+                  staticClass: "custom-select",
+                  attrs: { name: "localisation", id: "localisation" },
+                  on: {
+                    change: [
+                      function($event) {
+                        var $$selectedVal = Array.prototype.filter
+                          .call($event.target.options, function(o) {
+                            return o.selected
+                          })
+                          .map(function(o) {
+                            var val = "_value" in o ? o._value : o.value
+                            return val
+                          })
+                        _vm.localisationSelected = $event.target.multiple
+                          ? $$selectedVal
+                          : $$selectedVal[0]
+                      },
+                      function($event) {
+                        return _vm.onLocalisationChange()
+                      }
+                    ]
+                  }
+                },
+                [
+                  _c("option", { attrs: { "data-code": "0", value: "0" } }, [
+                    _vm._v("Toute la France")
+                  ]),
+                  _vm._v(" "),
+                  _vm._l(_vm.localisations, function(localisation) {
+                    return _c(
+                      "option",
+                      {
+                        key: localisation.id,
+                        attrs: { "data-code": localisation.code },
+                        domProps: { value: localisation.id }
+                      },
+                      [
+                        _vm._v(
+                          "\n                            " +
+                            _vm._s(localisation.name) +
+                            "\n                        "
+                        )
+                      ]
+                    )
+                  })
+                ],
+                2
+              )
+            ]),
+            _vm._v(" "),
+            _vm.localisationSelected != 0
+              ? _c("div", { staticClass: "form-group" }, [
+                  _c("label", { attrs: { for: "departement" } }, [
+                    _vm._v("Département")
+                  ]),
+                  _vm._v(" "),
+                  _c(
+                    "select",
+                    {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.departementSelected,
+                          expression: "departementSelected"
+                        }
+                      ],
+                      staticClass: "custom-select",
+                      attrs: { name: "departement", id: "departement" },
+                      on: {
+                        change: [
+                          function($event) {
+                            var $$selectedVal = Array.prototype.filter
+                              .call($event.target.options, function(o) {
+                                return o.selected
+                              })
+                              .map(function(o) {
+                                var val = "_value" in o ? o._value : o.value
+                                return val
+                              })
+                            _vm.departementSelected = $event.target.multiple
+                              ? $$selectedVal
+                              : $$selectedVal[0]
+                          },
+                          _vm.onDepartementChange
+                        ]
+                      }
+                    },
+                    [
+                      _c("option", { attrs: { value: "0" } }, [_vm._v("Tous")]),
+                      _vm._v(" "),
+                      _vm._l(_vm.departements, function(departement) {
+                        return _c(
+                          "option",
+                          {
+                            key: departement.code,
+                            domProps: { value: departement.code }
+                          },
+                          [
+                            _vm._v(
+                              "\n                            " +
+                                _vm._s(departement.nom) +
+                                "\n                        "
+                            )
+                          ]
+                        )
+                      })
+                    ],
+                    2
+                  )
+                ])
+              : _vm._e(),
+            _vm._v(" "),
+            _vm.departementSelected != 0
+              ? _c("div", { staticClass: "form-group" }, [
+                  _c("label", { attrs: { for: "commune" } }, [
+                    _vm._v("Commune")
+                  ]),
+                  _vm._v(" "),
+                  _c(
+                    "select",
+                    {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.communeSelected,
+                          expression: "communeSelected"
+                        }
+                      ],
+                      staticClass: "custom-select",
+                      attrs: { name: "commune", id: "commune" },
+                      on: {
+                        change: [
+                          function($event) {
+                            var $$selectedVal = Array.prototype.filter
+                              .call($event.target.options, function(o) {
+                                return o.selected
+                              })
+                              .map(function(o) {
+                                var val = "_value" in o ? o._value : o.value
+                                return val
+                              })
+                            _vm.communeSelected = $event.target.multiple
+                              ? $$selectedVal
+                              : $$selectedVal[0]
+                          },
+                          _vm.onCommuneChange
+                        ]
+                      }
+                    },
+                    [
+                      _c("option", { attrs: { value: "0" } }, [
+                        _vm._v("Toutes")
+                      ]),
+                      _vm._v(" "),
+                      _vm._l(_vm.communes, function(commune) {
+                        return _c(
+                          "option",
+                          {
+                            key: commune.code,
+                            domProps: { value: commune.code }
+                          },
+                          [
+                            _vm._v(
+                              "\n                            " +
+                                _vm._s(commune.nom) +
+                                "\n                        "
+                            )
+                          ]
+                        )
+                      })
+                    ],
+                    2
+                  )
+                ])
+              : _vm._e()
+          ]
+        )
+      ])
+    ]),
+    _vm._v(" "),
+    _c("br"),
+    _vm._v(" "),
+    _c("span", { domProps: { innerHTML: _vm._s(_vm.offreServices) } })
+  ])
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
 /***/ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js":
 /*!********************************************************************!*\
   !*** ./node_modules/vue-loader/lib/runtime/componentNormalizer.js ***!
@@ -49362,6 +49852,7 @@ window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
 
 Vue.component('example-component', __webpack_require__(/*! ./components/ExampleComponent.vue */ "./resources/js/components/ExampleComponent.vue")["default"]);
+Vue.component('offre-component', __webpack_require__(/*! ./components/OffreComponent.vue */ "./resources/js/components/OffreComponent.vue")["default"]);
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
@@ -49483,6 +49974,75 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ExampleComponent_vue_vue_type_template_id_299e239e___WEBPACK_IMPORTED_MODULE_0__["render"]; });
 
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ExampleComponent_vue_vue_type_template_id_299e239e___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
+/***/ "./resources/js/components/OffreComponent.vue":
+/*!****************************************************!*\
+  !*** ./resources/js/components/OffreComponent.vue ***!
+  \****************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _OffreComponent_vue_vue_type_template_id_1b39b4e6___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./OffreComponent.vue?vue&type=template&id=1b39b4e6& */ "./resources/js/components/OffreComponent.vue?vue&type=template&id=1b39b4e6&");
+/* harmony import */ var _OffreComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./OffreComponent.vue?vue&type=script&lang=js& */ "./resources/js/components/OffreComponent.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _OffreComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _OffreComponent_vue_vue_type_template_id_1b39b4e6___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _OffreComponent_vue_vue_type_template_id_1b39b4e6___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/OffreComponent.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/OffreComponent.vue?vue&type=script&lang=js&":
+/*!*****************************************************************************!*\
+  !*** ./resources/js/components/OffreComponent.vue?vue&type=script&lang=js& ***!
+  \*****************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_OffreComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib??ref--4-0!../../../node_modules/vue-loader/lib??vue-loader-options!./OffreComponent.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/OffreComponent.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_OffreComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/OffreComponent.vue?vue&type=template&id=1b39b4e6&":
+/*!***********************************************************************************!*\
+  !*** ./resources/js/components/OffreComponent.vue?vue&type=template&id=1b39b4e6& ***!
+  \***********************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_OffreComponent_vue_vue_type_template_id_1b39b4e6___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib??vue-loader-options!./OffreComponent.vue?vue&type=template&id=1b39b4e6& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/OffreComponent.vue?vue&type=template&id=1b39b4e6&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_OffreComponent_vue_vue_type_template_id_1b39b4e6___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_OffreComponent_vue_vue_type_template_id_1b39b4e6___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
 

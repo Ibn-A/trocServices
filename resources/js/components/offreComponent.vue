@@ -1,51 +1,51 @@
 <template>
-<div class="container">
-    <div class="card bg-light">
-        <h5 class="card-header">Votre recherche</h5>
-        <div class="card-body">
-            <form id="formAd" method="POST" :action="url">
-                <div class="form-group">
-                    <label for="service">Service</label>
-                    <select class="custom-select" name="service" id="service" @change="onServiceChange()" v-model="serviceSelected">
-                        <option value="0">Toutes</option>
-                        <option v-for="service in services" :key="service.id" :value="service.id">
-                            {{ service.nomService }}
-                        </option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label for="localisation">Région</label>
-                    <select class="custom-select" name="localisation" id="localisation" @change="onLocalisationChange()" v-model="localisationSelected">
-                        <option data-code="0" value="0">Toute la France</option>
-                        <option v-for="localisation in localisations" :key="localisation.id" :value="localisation.id" :data-code="localisation.code">
-                            {{ localisation.name }}
-                        </option>
-                    </select>
-                </div>
-                <div v-if="localisationSelected != 0" class="form-group">
-                    <label for="departement">Département</label>
-                    <select class="custom-select" name="departement" id="departement" @change="onDepartementChange" v-model="departementSelected">
-                        <option value="0">Tous</option>
-                        <option v-for="departement in departements" :key="departement.code" :value="departement.code">
-                            {{ departement.nom }}
-                        </option>
-                    </select>
-                </div>
-                <div v-if="departementSelected != 0" class="form-group" >
-                    <label for="commune">Commune</label>
-                    <select class="custom-select" name="commune" id="commune" @change="onCommuneChange" v-model="communeSelected">
-                        <option value="0">Toutes</option>
-                        <option v-for="commune in communes" :key="commune.code" :value="commune.code">
-                            {{ commune.nom }}
-                        </option>
-                    </select>
-                </div>
-            </form>
+    <div class="container">
+        <div class="card bg-light">
+            <h5 class="card-header">Votre recherche</h5>
+            <div class="card-body">
+                <form id="formAd" method="POST" :action="url">
+                    <div class="form-group">
+                        <label for="service">Service</label>
+                        <select class="custom-select" name="service" id="service" @change="onServiceChange()" v-model="serviceSelected">
+                            <option value="0">Toutes</option>
+                            <option v-for="service in services" :key="service.id" :value="service.id">
+                                {{ service.nomService }}
+                            </option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="localisation">Région</label>
+                        <select class="custom-select" name="localisation" id="localisation" @change="onLocalisationChange()" v-model="localisationSelected">
+                            <option data-code="0" value="0">Toute la France</option>
+                            <option v-for="localisation in localisations" :key="localisation.id" :value="localisation.id" :data-code="localisation.code">
+                                {{ localisation.name }}
+                            </option>
+                        </select>
+                    </div>
+                    <div v-if="localisationSelected != 0" class="form-group">
+                        <label for="departement">Département</label>
+                        <select class="custom-select" name="departement" id="departement" @change="onDepartementChange" v-model="departementSelected">
+                            <option value="0">Tous</option>
+                            <option v-for="departement in departements" :key="departement.code" :value="departement.code">
+                                {{ departement.nom }}
+                            </option>
+                        </select>
+                    </div>
+                    <div v-if="departementSelected != 0" class="form-group" >
+                        <label for="commune">Commune</label>
+                        <select class="custom-select" name="commune" id="commune" @change="onCommuneChange" v-model="communeSelected">
+                            <option value="0">Toutes</option>
+                            <option v-for="commune in communes" :key="commune.code" :value="commune.code">
+                                {{ commune.nom }}
+                            </option>
+                        </select>
+                    </div>
+                </form>
+            </div>
         </div>
+        <br>
+        <span v-html="offreServices"></span>
     </div>
-    <br>
-    <span v-html="offreServices"></span>
-</div>
 </template>
 <script>
     export default {
@@ -71,7 +71,7 @@
             onServiceChange() {
                 this.submit();
             },
-            onLocalisatonChange() {
+            onLocalisationChange() {
                 const index = event.target.selectedIndex;
                 if (index) {
                     this.localisationSlug = this.localisations[index - 1]['slug'];
@@ -118,8 +118,8 @@
                     method: 'post',
                     url: this.url + comp,
                     data: {
-                        'service': this.categorySelected,
-                        'localisation': this.regionSelected,
+                        'service': this.serviceSelected,
+                        'localisation': this.localisationSelected,
                         'departement': this.departementSelected,
                         'commune': this.communeSelected,
                         '_token': $('meta[name="csrf-token"]').attr('content')
@@ -127,7 +127,7 @@
                 })
                 .done(data => {
                     this.offres = data;
-                    let ref = '/annonces';
+                    let ref = '/les-offres';
                     if(this.localisationSelected) {
                         ref += '/' + this.localisationSlug
                     }
@@ -140,7 +140,7 @@
                     if(comp) {
                         ref += comp;
                     }
-                    history.pushState({}, 'Offres', ref);
+                    history.pushState({}, 'les-offres', ref);
                 })
             }
         },

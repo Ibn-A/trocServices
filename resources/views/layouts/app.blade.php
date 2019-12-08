@@ -29,7 +29,7 @@
             @yield('content')
         </main>
 
-        <footer class="py-4">
+        <footer class="py-4" fixed--bottom>
         @include('includes.footer')
         </footer>
         

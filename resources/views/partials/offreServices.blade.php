@@ -1,5 +1,5 @@
 @foreach($offreServices as $offreService)
-<a href="{{ route('offres.show', $ad->id) }}" class="blockAd">
+<a href="{{ route('offres.show', $offreService->id) }}" class="offreUrl">
         <div class="card d-flex flex-row">
             <div class="card-header">
             </div>
@@ -12,10 +12,11 @@
                 </p>
             </div>
         </div>
-    </a>
-    <br>
+</a>
+<br>
 @endforeach
 <div class="d-flex">
     <div class="mx-auto">
         {{ $offreServices->links() }}
     </div>
+</div>
