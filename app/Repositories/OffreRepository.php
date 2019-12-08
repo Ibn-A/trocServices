@@ -23,11 +23,15 @@ class OffreRepository
             });
         }
         if($request->service != 0) {
-            $offreServices->whereHas('service', function ($query) use ($request) {
+            $offreServices->whereHas('service', function ($query) use ($request) 
+            {
                 $query->where('services.id', $request->service);
             });
         }
-        return $offreServices->with('service')->whereActive(true)->latest()->paginate(3);
+        return $offreServices->with('service')
+            ->whereActive(true)
+            ->latest()
+            ->paginate(3);
     }
 
     //
