@@ -74,6 +74,13 @@ Route::group(['middleware'=>'user'], function()
 {
     Route::get('/user', 'UserController@index')->name('user.index');
    
+});
+// Route for the upload.
+Route::group(['middleware'=>'ajax'], function()
+{
+    Route::post('images-save','UploadImagesController@store')->name('save-images');
+    Route::delete('images-delete','UploadImagesController@destroy')->name('destroy-images');
+    Route::get('images-server','UploadImagesController@getServerImages')->name('server-images');
 
 });
 

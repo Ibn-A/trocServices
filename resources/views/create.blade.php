@@ -4,6 +4,20 @@
     <div class="card bg-light">
         <h5 class="card-header">Votre offre de service</h5>
         <div class="card-body">
+
+            <div class="form-group">
+                <label>Vos photos (3 images au maximum et 3Mo pour chacune)</label>
+                <form method="post" action="{{ route('save-images') }}" enctype="multipart/form-data" class="dropzone" id="my-dropzone">
+                    @csrf
+                    <div class="dz-message">
+                        <div class="col-xs-8">
+                            <div class="message">
+                                <p>Déposez vos photos ici ou cliquez</p>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
             <form method="POST" action="{{ route('offreServices.store') }}">
                 @csrf
                 <div class="form-group">
@@ -52,7 +66,8 @@
                         </div>
                         <div class="form-group">
                             <label for="departement">Département</label>
-                            <select class="custom-select" name="departement" id="departement">  
+                            <select class="custom-select" name="departement" id="departement"> 
+            
                             </select>
                         </div>
                         <div class="form-group">
@@ -120,6 +135,7 @@
 @endsection
 @section('script')
     <script>
+
         const fillSelect = (element, data) => {
             element.html('');
             data.forEach((e) => {
@@ -143,5 +159,48 @@
             $('#localisation').change(() => { fillDepartements(); });
             $('#departement').change(() => { fillCommunes(); });
         })
+
+        Dropzone.options.myDropzone = {
+            uploadMultiple: true,
+            parallelUploads: 3,
+            maxFilesize: 3,
+            maxFiles: 3,
+            dictMaxFilesExceeded : 'Vous ne pouvez charger que 3 photos',
+            previewTemplate: document.querySelector('#preview').innerHTML,
+            addRemoveLinks: true,
+            acceptedFiles: 'image/*',
+            dictInvalidFileType : 'Type de fichier interdit',
+            dictRemoveFile: 'Supprimer',
+            dictFileTooBig: 'L\'image fait plus de 3 Mo',
+            timeout: 10000,
+            init () {
+                const myDropzone = this;
+                $.get('{{ route('server-images') }}', data => {
+                    $.each(data.images, (key, value) => {
+                        const mockFile = {
+                            name: value.original,
+                            size: value.size,
+                            dataURL: '{{ url('images') }}' + '/' + value.server
+                        };
+                        myDropzone.files.push(mockFile);
+                        myDropzone.emit("addedfile", mockFile);
+                        myDropzone.createThumbnailFromUrl(mockFile,
+                        myDropzone.options.thumbnailWidth,
+                        myDropzone.options.thumbnailHeight,
+                        myDropzone.options.thumbnailMethod, true, (thumbnail) => {
+                            myDropzone.emit('thumbnail', mockFile, thumbnail);
+                        });
+                        myDropzone.emit('complete', mockFile);
+                    });
+                });
+                this.on("removedfile", file => {
+                    $.ajax({
+                        method: 'delete',
+                        url: '{{ route('destroy-images') }}',
+                        data: { name: file.name, _token: $('[name="_token"]').val() }
+                    });
+                });
+            }
+        };
     </script>
 @endsection

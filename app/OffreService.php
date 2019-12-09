@@ -38,6 +38,14 @@ class OffreService extends Model
     {
         return $this->hasMany('App\Message');
     }
+
+    /**
+     * Obtenir les photos liées a une offreService.
+     */
+    public function upload()
+    {
+        return $this->hasMany('App\Upload');
+    }
      /**
      * Obtenir les matching(demandes de services) liées a une offreService.
      */

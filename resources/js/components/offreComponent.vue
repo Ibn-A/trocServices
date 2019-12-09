@@ -1,7 +1,7 @@
 <template>
     <div class="container">
         <div class="card bg-light">
-            <h5 class="card-header">Votre recherche</h5>
+            <h5 class="card-header">Votre recherche d'offres de services</h5>
             <div class="card-body">
                 <form id="formAd" method="POST" :action="url">
                     <div class="form-group">

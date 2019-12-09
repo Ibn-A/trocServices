@@ -37,6 +37,13 @@ class DemandeService extends Model
     {
         return $this->hasMany('App\Message');
     }
+    /**
+     * Obtenir les photos liées a une demandeService.
+     */
+    public function upload()
+    {
+        return $this->hasMany('App\Upload');
+    }
      /**
      * Obtenir les matching(offres de services) liées a une demande de Service.
      */

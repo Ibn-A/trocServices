@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Service;
 use Carbon\Carbon;
 use App\Localisation;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use App\Repositories\OffreRepository;
 
@@ -70,6 +71,9 @@ class OffreServiceController extends Controller
      */
     public function create(Request $request)
     {
+        if(!$request->session()->has('index')) {
+            $request->session()->put('index', Str::random(30));
+        }
 
         $services = Service::select('nomService','id')->oldest('nomService')->get();
         $localisations = Localisation::select('name','id')->oldest('name')->get();
@@ -105,6 +109,7 @@ class OffreServiceController extends Controller
 
         if($request->session()->has('index')) {
             $index = $request->session()->get('index');
+            Upload::whereIndex($index)->update(['offreService_id' => $offreService->id, 'index' => 0]);
         }
     
         return view('offreconfirm');

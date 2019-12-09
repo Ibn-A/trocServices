@@ -17,6 +17,6 @@
 @endforeach
 <div class="d-flex">
     <div class="mx-auto">
-        {{ $offreServices->links() }}
+        {{ $offres->links() }}
     </div>
 </div>
