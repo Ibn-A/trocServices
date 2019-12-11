@@ -168,19 +168,19 @@
                 <hr class="divider my-4">
                 <div class="row py-3" >
                     <div class="col-md-3 col-sm-6">
-                    <a href="https://www.grandest.fr/">
+                    <a href="https://www.grandest.fr/" target="_blank">
                         <img class="img-fluid d-block mx-auto " src="/img/Grand_Est_Logo.png" alt=""></a>
                     </div>
                     <div class="col-md-3 col-sm-6">
-                    <a href="https://www.strasbourg.eu/">
+                    <a href="https://www.strasbourg.eu/" target="_blank">
                         <img class="img-fluid d-block mx-auto"  src="/img/ico_eurom.jpg" alt=""></a>
                     </div>
                     <div class="col-md-3 col-sm-6">
-                    <a href="https://www.gouvernement.fr/">
+                    <a href="https://www.gouvernement.fr/" target="_blank">
                         <img class="img-fluid d-block mx-auto"  src="/img/Logo_RF.svg" alt=""></a>
                     </div>
                     <div class="col-md-3 col-sm-6">
-                    <a href="https://www.bas-rhin.fr/">
+                    <a href="https://www.bas-rhin.fr/" target="_blank">
                         <img class="img-fluid d-block mx-auto "  src="img/logo_Bas_Rhin.svg" alt=""></a>
                     </div>
                 </div>

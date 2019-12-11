@@ -86,7 +86,7 @@ class SearchController extends Controller
     public function search(Request $request)
     {
         $query = $request->input('query');
-        $offreServices = OffreService::where('titre', 'like', "%{$query}%");
+        $offreServices = OffreService::where('titre', 'like', "%{$query}%")->get();
 
         return view('search')->with('offreServices', $offreServices);
     }

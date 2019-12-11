@@ -1,11 +1,11 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container py-4" style="background:orange">
-    @if (strlen($offreServices)!=0)
-        <h1 class="card-header">Vos résultats de recherche :</h1>
+<div class="container py-4" style="background:orange">  
+    <h1 class="card-header">Vos résultats de recherche :</h1>   
+    @if(!empty($offreServices))
         @foreach($offreServices as $offre)
-            <a href="" class="blockAd">
+            <a href="{{ route('offres.show', $offre->id) }}" class="blockAd">
                 <div class="card d-flex flex-row">
                     <div class="card-header">
                         <img src="{{ asset('/img/solidR.svg') }}" alt="">
@@ -24,7 +24,7 @@
             <br>
         @endforeach
     @else
-        <h1 class="card-header">Vos résultats de recherche : 0 résultats</h1>
+        Désolé, nous n'avons pas encore d'offres qui correspondent à votre demande.
     @endif
 <div class="d-flex">
     <div class="mx-auto">
