@@ -17875,7 +17875,7 @@ __webpack_require__(/*! bootstrap */ "./node_modules/bootstrap/dist/js/bootstrap
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /Users/ibnali/webApps/Laravel/trocServices/resources/js/sb-admin-2.js */"./resources/js/sb-admin-2.js");
+module.exports = __webpack_require__(/*! /Users/admin/webApps/trocServices/resources/js/sb-admin-2.js */"./resources/js/sb-admin-2.js");
 
 
 /***/ })
