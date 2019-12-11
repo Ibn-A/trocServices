@@ -16,12 +16,22 @@ class CreateUploadsTable extends Migration
         Schema::create('uploads', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->timestamps();
-            $table->string('filename');
-            $table->string('original_name');
-            $table->string('index');
+            $table->string('filename')->nullable();
+            $table->string('original_name')->nullable();
+            $table->string('index')->nullable();
             $table->unsignedBigInteger('offreService_id')->nullable();
+            $table->foreign('offreService_id')
+                ->references('id')
+                ->on('offre_services')
+                ->onDelete('cascade')
+                ->onUpdate('cascade');
             
             $table->unsignedBigInteger('demandeService_id')->nullable();
+            $table->foreign('demandeService_id')
+                ->references('id')
+                ->on('demande_services')
+                ->onDelete('cascade')
+                ->onUpdate('cascade');
 
         });
     }

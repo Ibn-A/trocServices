@@ -40,4 +40,10 @@ class OffreRepository
         return OffreService::create($data);
     }
 
+    //Récupérer les photos associé a une offre
+    public function getPhotos($offreService)
+    {
+        //return $offreService->upload()-> get();
+    }
+
 }

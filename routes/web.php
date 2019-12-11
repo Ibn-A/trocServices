@@ -82,6 +82,7 @@ Route::group(['middleware'=>'ajax'], function()
     Route::delete('images-delete','UploadImagesController@destroy')->name('destroy-images');
     Route::get('images-server','UploadImagesController@getServerImages')->name('server-images');
 
+    Route::post('message', 'UserController@message')->name('message');
 });
 
 

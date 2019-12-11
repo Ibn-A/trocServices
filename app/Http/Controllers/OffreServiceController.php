@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Service;
 use Carbon\Carbon;
 use App\Localisation;
+use App\OffreService;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use App\Repositories\OffreRepository;
@@ -121,9 +122,11 @@ class OffreServiceController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(OffreService $offreService)
     {
-        //
+        $this->authorize('show', $offreService);
+        //$photos = $this->offreRepository->getPhotos($offreService);
+        return view('offreServices.offre', compact('offreService'));
     }
 
     /**
