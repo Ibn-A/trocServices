@@ -6,9 +6,9 @@
     @if(!empty($offreServices))
         @foreach($offreServices as $offre)
             <a href="{{ route('offres.show', $offre->id) }}" class="blockAd">
-                <div class="card d-flex flex-row">
+                <div class="card d-flex flex-col">
                     <div class="card-header">
-                        <img src="{{ asset('/img/solidR.svg') }}" alt="">
+                        <img class="img-responsive border-box"  src="{{ asset('/img/solidR.svg') }}" alt="logo_trocServices">
                     </div>
                     <div class="card-body">
                         <h4 class="card-title">{{ $offre->titre }}</h4>

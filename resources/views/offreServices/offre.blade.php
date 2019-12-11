@@ -3,7 +3,7 @@
 <div class="container" style="background:orange">
     <div class="card bg-light">
         <h5 class="card-header">{{ $offreService->titre }}</h5>
-        <img class="card-img-top" width="100" height="300" src="{{ asset('/img/question') }}">
+        <img class="card-img-top" width="100" height="300" src="{{ asset('/img/solidR.svg') }}">
         <div class="card-body">
             <hr>
             <p><u>Description :</u></p>
