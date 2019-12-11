@@ -138,7 +138,7 @@
                             <img src="/img/ico_cours" width="90" height="90" class="text-primary mb-4" alt="icone_cours"></a>
                             <h3 class="h4 mb-2">Cours particuliers</h3>
 
-                            <p class="text-muted mb-0"> Plus d'une centaines de troker s'échangent déjà leur connaissances.</p>
+                            <p class="text-muted mb-0"> Plus d'une centaines de trokers s'échangent déjà leur connaissances.</p>
                         </div>
                     </div>
                     <div class="col-lg-3 col-md-6 text-center">
