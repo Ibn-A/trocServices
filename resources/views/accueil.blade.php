@@ -126,34 +126,35 @@
                     <div class="col-lg-3 col-md-6 text-center">
                         <div class="mt-5">
                             <a href ="">
-                            <i class="fas fa-4x fa-vector-square text-primary mb-4"></i></a>
+                            <img src="/img/ico_sport" width="90" height="90" class="text-primary mb-4" alt="icone_bien être"></a>
                             <h3 class="h4 mb-2">Beauté et bien être</h3>
-                            <h3 class="h4 mb-2">Lorem ipsum</h3>
-                            <p class="text-muted mb-0">Lorem ipsum dolor sit, amet consectetur adipisicing elit.</p>
+                            <p class="text-muted mb-0">Etre en meilleur forme en échangeant avec son voisin, 
+                                les trokers apprécient. </p>
                         </div>
                     </div>
                     <div class="col-lg-3 col-md-6 text-center">
                         <div class="mt-5">
-                            <i class="fas fa-4x fa-vector-square text-primary mb-4"></i>
+                            <a href ="">
+                            <img src="/img/ico_cours" width="90" height="90" class="text-primary mb-4" alt="icone_cours"></a>
                             <h3 class="h4 mb-2">Cours particuliers</h3>
 
-                            <p class="text-muted mb-0">Lorem ipsum dolor sit, amet consectetur adipisicing elit.</p>
+                            <p class="text-muted mb-0"> Plus d'une centaines de troker s'échangent déjà leur connaissances.</p>
                         </div>
                     </div>
                     <div class="col-lg-3 col-md-6 text-center">
                         <div class="mt-5">
-                            <i class="fas fa-4x fa-vector-square text-primary mb-4"></i>
-
+                            <a href ="">
+                            <img src="/img/ico_chaton" width="90" height="90" class="text-primary mb-4" alt="icone_chat"></a>
                             <h3 class="h4 mb-2">Animaux</h3>
-
-                            <p class="text-muted mb-0">Lorem ipsum dolor sit, amet consectetur adipisicing elit§</p>
+                            <p class="text-muted mb-0">Prendre soin de son animal grâce à l'échange de service, les trokers adorent!</p>
                         </div>
                     </div>
                     <div class="col-lg-3 col-md-6 text-center">
                         <div class="mt-5">
-                            <i class="fas fa-4x fa-vector-square text-primary mb-4"></i>
+                            <a href ="">
+                            <img src="/img/ico_dem" width="90" height="90" class="text-primary mb-4" alt="icone_demenagement"></a>
                             <h3 class="h4 mb-2">Démenagement</h3>
-                            <p class="text-muted mb-0">Lorem ipsum dolor sit, amet consectetur adipisicing elit?</p>
+                            <p class="text-muted mb-0">Un déménagement facile, grâce a l'échange de service avec vos futurs voisins!</p>
                         </div>
                     </div>
                 </div>
@@ -163,26 +164,24 @@
         <!-- Clients -->
         <section class="py-5 partenaire">
             <div class="container">
-                <div class="row">
+                <h2 class="text-center mt-0">Nos partenaires</h2>
+                <hr class="divider my-4">
+                <div class="row py-3" >
                     <div class="col-md-3 col-sm-6">
-                    <a href="#">
-                        <img class="img-fluid d-block mx-auto" src="https://via.placeholder.com/250x75" alt="">
-                    </a>
+                    <a href="https://www.grandest.fr/">
+                        <img class="img-fluid d-block mx-auto " src="/img/Grand_Est_Logo.png" alt=""></a>
                     </div>
                     <div class="col-md-3 col-sm-6">
-                    <a href="#">
-                        <img class="img-fluid d-block mx-auto" src="https://via.placeholder.com/250x75" alt="">
-                    </a>
+                    <a href="https://www.strasbourg.eu/">
+                        <img class="img-fluid d-block mx-auto"  src="/img/ico_eurom.jpg" alt=""></a>
                     </div>
                     <div class="col-md-3 col-sm-6">
-                    <a href="#">
-                        <img class="img-fluid d-block mx-auto" src="https://via.placeholder.com/250x75" alt="">
-                    </a>
+                    <a href="https://www.gouvernement.fr/">
+                        <img class="img-fluid d-block mx-auto"  src="/img/Logo_RF.svg" alt=""></a>
                     </div>
                     <div class="col-md-3 col-sm-6">
-                    <a href="#">
-                        <img class="img-fluid d-block mx-auto" src="https://via.placeholder.com/250x75" alt="">
-                    </a>
+                    <a href="https://www.bas-rhin.fr/">
+                        <img class="img-fluid d-block mx-auto "  src="img/logo_Bas_Rhin.svg" alt=""></a>
                     </div>
                 </div>
             </div>
@@ -195,22 +194,22 @@
         <div class="col-lg-6 h-100 text-center text-lg-left my-auto">
           <ul class="list-inline mb-2">
             <li class="list-inline-item">
-              <a href="#">Home</a>
+              <a href="#">Accueil</a>
             </li>
             <li class="list-inline-item">&sdot;</li>
             <li class="list-inline-item">
-              <a href="#">Lorem</a>
+              <a href="#services">Les thèmes</a>
             </li>
             <li class="list-inline-item">&sdot;</li>
             <li class="list-inline-item">
-              <a href="#">Lorem</a>
+              <a href="#partenaires">Les partenaires</a>
             </li>
             <li class="list-inline-item">&sdot;</li>
             <li class="list-inline-item">
-              <a href="#">Lorem</a>
+              <a href="#">Nous contacter</a>
             </li>
           </ul>
-          <p class="text-muted small mb-4 mb-lg-0">&copy; Your Website 2019. All Rights Reserved.</p>
+          <p class="text-muted small mb-4 mb-lg-0">&copy; trocServices 2019. All Rights Reserved.</p>
         </div>
         <div class="col-lg-6 h-100 text-center text-lg-right my-auto">
           <ul class="list-inline mb-0">
