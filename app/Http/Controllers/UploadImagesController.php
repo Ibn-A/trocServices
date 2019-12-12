@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use index;
+use Faker\Provider\Image;
 use Illuminate\Http\Request;
 
 class UploadImagesController extends Controller
@@ -48,7 +49,7 @@ class UploadImagesController extends Controller
             $upload->filename = $save_name;
             $upload->original_name = basename($photo->getClientOriginalName());
             $upload->index = $request->session()->get('index');
-            $upload->ad_id = 0;
+            $upload->offreService_id = 0;
             $upload->save();
         }
     }

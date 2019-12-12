@@ -13,6 +13,7 @@
             data-commune="{{ $communeCode }}"
         @endif
     @endif
+
 @else
     <div id="start" data-id="0"
 @endif

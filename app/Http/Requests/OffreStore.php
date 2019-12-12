@@ -27,8 +27,8 @@ class OffreStore extends FormRequest
         return [
             'title' => ['required', 'string', 'max:100'],
             'texte' => ['required', 'string', 'max:1000'],
-            'pseudo' => ['required', 'string', 'max:20'],
-            'email' => ['required', 'string', 'email', 'max:255'],
+            'pseudo' => ['sometimes', 'string', 'max:20'],
+            'email' => ['sometimes', 'string', 'email', 'max:255'],
         ];
     }
 }

@@ -8,6 +8,7 @@ use App\Localisation;
 use App\OffreService;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
+use App\Http\Requests\OffreStore;
 use App\Repositories\OffreRepository;
 
 class OffreServiceController extends Controller

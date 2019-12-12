@@ -67,18 +67,28 @@
                         <div class="form-group">
                             <label for="departement">Département</label>
                             <select class="custom-select" name="departement" id="departement"> 
-            
+                                <option value="0">Tous</option>
+                                <option value="1">Bas-Rhin</option>
+                                <option value="2">Haut-Rhin</option>
+                                <option value="3">Moselle</option>
+                                <option value="4">Vosges</option>
                             </select>
                         </div>
                         <div class="form-group">
                             <label for="commune">Commune</label>
                             <select class="custom-select" name="commune" id="commune">
+                                <option value="0">Toutes</option>
+                                <option value="1">Bischheim</option>
+                                <option value="2">Eckbolsheim</option>
+                                <option value="3">Entzheim</option>
+                                <option value="4">Strasbourg</option>
                                 
                             </select>
                         </div>
                     </div>
                 </div>
                 <br>
+                @guest
                     <div class="card">
                         <h5 class="card-header">Votre identité</h5>
                         <div class="card-body">
@@ -96,6 +106,7 @@
                             ])
                         </div>
                     </div>
+                @endguest
                 <br>
                 <button type="submit" class="btn btn-primary" href="">Valider</button>
             </form>
@@ -144,13 +155,14 @@
         }
         const fillDepartements = () => {
             $.get('https://geo.api.gouv.fr/regions/' + $('#region option:selected').attr('data-code') + '/departements', function(data) {
-                fillSelect($('#departement'), data);
+                $departements = fillSelect($('#departement'), data);
                 fillCommunes();
             });
         }
         const fillCommunes = () => {
+            
             $.get('https://geo.api.gouv.fr/departements/' + $('#departement').val() + '/communes', function(data) {
-                fillSelect($('#commune'), data);
+                $communes = fillSelect($('#commune'), data);
             });
         }
         
