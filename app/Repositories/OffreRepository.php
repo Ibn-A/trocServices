@@ -46,4 +46,10 @@ class OffreRepository
         //return $offreService->upload()-> get();
     }
 
+    // Récuper une annonce a partir de son identifiant.
+    public function getById($id)
+    {
+        return OffreService::findOrFail($id);
+    }
+
 }
