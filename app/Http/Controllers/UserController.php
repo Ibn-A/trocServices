@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Requests\MessageOffre;
 use App\Repositories\OffreRepository;
+use App\Repositories\MessageRepository;
 
 
 class UserController extends Controller
@@ -36,11 +37,22 @@ class UserController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        //
-    }
+        $offreServices = $this->offreRepository->getByUser($request->user());
+        $offreServiceAttenteCount = $this->offreRepository->activeCount($offreServices);
+        $offreServiceActivesCount = $this->offreRepository->activeCount($offreServices);
+        $offreServicePerimesCount = $this->offreRepository->obsoleteCount($offreServices);
 
+        return view('user.index', compact('offreServiceActivesCount','offreServicePerimesCount','offreServiceAttenteCount'));
+    }
+    // 
+    public function actives(Request $request)
+    {
+    $offreServices = $this->offreRepository->active($request->user(), 5);
+    return view('user.actives', compact('offreServices'));
+    }
+    //
     /**
      * Show the form for creating a new resource.
      *

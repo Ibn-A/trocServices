@@ -15,7 +15,7 @@ Route::get('/', function () {
     return view('accueil');
 });
 
-// recherche
+// Route search Bar 
 Route::get('/search', 'SearchController@search')->name('search');
 
 Auth::routes();
@@ -70,11 +70,11 @@ Route::group(['middleware' =>'auth'],function()
 
 });
 
-Route::group(['middleware'=>'user'], function()
+/*Route::group(['middleware'=>'user'], function()
 {
     Route::get('/user', 'UserController@index')->name('user.index');
    
-});
+});*/
 // Route for the upload.
 Route::group(['middleware'=>'ajax'], function()
 {
@@ -85,4 +85,17 @@ Route::group(['middleware'=>'ajax'], function()
     Route::post('message', 'UserController@message')->name('message');
 });
 
-
+// Routes pour les actions de l'utilisateur
+Route::prefix('utilisateur')->middleware('user')->group(function () {
+    Route::get('/', 'UserController@index')->name('user.index');
+    Route::prefix('offreServices')->group(function () {
+        Route::get('actives', 'UserController@actives')->name('user.actives');
+        Route::get('obsoletes', 'UserController@obsoletes')->name('user.obsoletes');
+        Route::get('attente', 'UserController@attente')->name('user.attente');
+    });
+    Route::prefix('profil')->group(function () {
+        Route::get('email', 'UserController@emailEdit')->name('user.email.edit');
+        Route::put('email', 'UserController@emailUpdate')->name('user.email.update');
+        Route::get('donnees', 'UserController@data')->name('user.data');
+    });
+});

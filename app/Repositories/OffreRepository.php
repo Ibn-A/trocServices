@@ -51,5 +51,20 @@ class OffreRepository
     {
         return OffreService::findOrFail($id);
     }
+    // connaître le nombre d’annonces actives (activeCount)
+    public function activeCount($offreServices)
+    {
+        return $offreServices->where('active', true)->where('limit', '>=', Carbon::now())->count();
+    }
+    // chercher les annonces de l’utilisateur (getByUser)
+    public function getByUser($user)
+    {
+        return $user->offreServices()->get();
+    }
+    // Annonces active
+    public function active($user, $nbr)
+    {
+        return $user->offreServices()->whereActive(true)->where('limit', '>=', Carbon::now())->paginate($nbr);
+    }   
 
 }

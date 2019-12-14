@@ -67,21 +67,13 @@
                         <div class="form-group">
                             <label for="departement">Département</label>
                             <select class="custom-select" name="departement" id="departement"> 
-                                <option value="0">Tous</option>
-                                <option value="1">Bas-Rhin</option>
-                                <option value="2">Haut-Rhin</option>
-                                <option value="3">Moselle</option>
-                                <option value="4">Vosges</option>
+                               
                             </select>
                         </div>
                         <div class="form-group">
                             <label for="commune">Commune</label>
                             <select class="custom-select" name="commune" id="commune">
-                                <option value="0">Toutes</option>
-                                <option value="1">Bischheim</option>
-                                <option value="2">Eckbolsheim</option>
-                                <option value="3">Entzheim</option>
-                                <option value="4">Strasbourg</option>
+                              
                                 
                             </select>
                         </div>

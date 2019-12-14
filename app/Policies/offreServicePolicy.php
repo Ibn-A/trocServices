@@ -32,7 +32,7 @@ class offreServicePolicy
      */
     public function show(?User $user, OffreService $offreService)
     {
-        if($user && $user->id == $offreService->user_id) {
+        if($user) {
             return true;
         }
         return $offreService->active;
